@@ -1,0 +1,21 @@
+{
+  "name": "DESIGN HAUS Architecture Studio",
+  "short_name": "DESIGN HAUS",
+  "description": "Independent Luxury Architecture, Civil Engineering, Construction & Interior Design by Er. Nadeem Keli.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#090a09",
+  "theme_color": "#090a09",
+  "icons": [
+    {
+      "src": "assets/brand/design-haus-logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/brand/design-haus-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

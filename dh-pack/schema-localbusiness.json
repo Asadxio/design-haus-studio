@@ -1,0 +1,64 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://designhauss.com/#business",
+  "name": "DESIGN HAUS",
+  "alternateName": "Design Haus Bankapur",
+  "slogan": "Designing Space, Defining Style",
+  "description": "Architecture, building planning, 2D floor plans, 3D elevations, interior design, turnkey construction, estimation and site supervision in Bankapur, Savanur and Haveri, Karnataka. Led by civil engineer Er. Nadeem Keli.",
+  "url": "https://designhauss.com/",
+  "logo": "https://designhauss.com/assets/brand/design-haus-logo.png",
+  "image": "https://designhauss.com/assets/brand/og-default.jpg",
+  "telephone": "+91-9036389529",
+  "email": "nadeemkeli3938@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Mundgod Cross, Bankapur",
+    "addressLocality": "Bankapur",
+    "addressRegion": "Karnataka",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 14.9185734,
+    "longitude": 75.249040
+  },
+  "hasMap": "https://share.google/r7AWYi6I2VgOyxBWh",
+  "areaServed": [
+    { "@type": "City", "name": "Bankapur" },
+    { "@type": "City", "name": "Savanur" },
+    { "@type": "City", "name": "Haveri" },
+    { "@type": "AdministrativeArea", "name": "Haveri district, Karnataka" }
+  ],
+  "knowsLanguage": ["en", "kn", "hi"],
+  "founder": {
+    "@type": "Person",
+    "name": "Nadeem Keli",
+    "honorificPrefix": "Er.",
+    "jobTitle": "Civil Engineer",
+    "sameAs": "https://www.instagram.com/er.nadeem_keli"
+  },
+  "sameAs": [
+    "https://www.instagram.com/design_haus__",
+    "https://www.instagram.com/er.nadeem_keli",
+    "https://share.google/r7AWYi6I2VgOyxBWh"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+91-9036389529",
+    "contactType": "customer service",
+    "availableLanguage": ["English", "Kannada", "Hindi"]
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Design Haus services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Architecture & Building Planning" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "2D Floor Plans & 3D Elevation" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Interior Design & Renovation" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Construction & Turnkey Projects" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Building Permissions, Estimation & Supervision" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial Building Design & Real Estate" } }
+    ]
+  }
+}

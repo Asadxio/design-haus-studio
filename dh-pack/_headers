@@ -1,0 +1,17 @@
+# Netlify _headers  (put this file in the site's publish root)
+
+# Keep the admin area out of Google
+/admin*
+  X-Robots-Tag: noindex, nofollow, noarchive
+
+# Security + hygiene for every page
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+# Cache images/fonts/scripts for 30 days (safe if filenames are not hashed)
+/assets/*
+  Cache-Control: public, max-age=2592000
