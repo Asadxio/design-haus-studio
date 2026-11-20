@@ -1,0 +1,19 @@
+# Netlify _redirects (site publish root)
+# 1) Old netlify.app address -> real domain (fixes duplicate-content / wrong canonical problem)
+https://design-haus-studio.netlify.app/*   https://designhauss.com/:splat   301!
+
+# 2) www -> non-www
+https://www.designhauss.com/*   https://designhauss.com/:splat   301!
+
+# 3) Project details redirect to clean static project pages (query param rules FIRST)
+/project-details id=:id        /projects/:id   301!
+/project-details               /projects       301!
+/project-details.html id=:id   /projects/:id   301!
+/project-details.html          /projects       301!
+
+# 4) Old .html URLs -> clean URLs
+/index.html     /          301!
+/studio.html    /studio    301!
+/services.html  /services  301!
+/projects.html  /projects  301!
+/contact.html   /contact   301!
