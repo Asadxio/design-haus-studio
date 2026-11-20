@@ -9,24 +9,98 @@
     }[c]));
   }
 
+  function setMeta(selector, attr, value) {
+    let el = document.querySelector(selector);
+    if (!el) {
+      el = document.createElement('meta');
+      if (selector.startsWith('meta[property=')) {
+        const prop = selector.match(/property="([^"]+)"/)?.[1];
+        if (prop) el.setAttribute('property', prop);
+      } else if (selector.startsWith('meta[name=')) {
+        const name = selector.match(/name="([^"]+)"/)?.[1];
+        if (name) el.setAttribute('name', name);
+      }
+      document.head.appendChild(el);
+    }
+    el.setAttribute(attr, value);
+  }
+
+  function setCanonical(url) {
+    let can = document.querySelector('link[rel="canonical"]');
+    if (!can) {
+      can = document.createElement('link');
+      can.setAttribute('rel', 'canonical');
+      document.head.appendChild(can);
+    }
+    can.setAttribute('href', url);
+  }
+
   async function loadProjectDetails() {
     try {
-      const res = await fetch('assets/projects.json');
+      let res;
+      try {
+        res = await fetch('/assets/projects.json');
+      } catch (e) {
+        res = await fetch('assets/projects.json');
+      }
+      if (!res || !res.ok) {
+        res = await fetch('assets/projects.json');
+      }
       if (!res.ok) throw new Error('Could not load portfolio collection');
       const allProjects = await res.json();
 
       const params = new URLSearchParams(window.location.search);
-      const projectId = params.get('id') || params.get('slug');
+      const rawId = (params.get('id') || params.get('slug') || '').trim().replace(/\/+$/, '');
 
-      let current = allProjects.find(p => p.id === projectId || p.slug === projectId);
+      let current = allProjects.find(p => p.id === rawId || p.slug === rawId);
       if (!current) {
         current = allProjects[0]; // Graceful fallback
       }
 
-      // Update Page Title
-      document.title = `${current.title} | DESIGN HAUS Presentation`;
+      // 1. Dynamic SEO & Canonical Metadata
+      const canonicalUrl = `https://designhauss.com/project-details?id=${encodeURIComponent(current.id)}`;
+      setCanonical(canonicalUrl);
 
-      // Update Headings & Badges
+      // Check deliverables in actual project data: never promise floor plans or 3D elevations unless present
+      const textBlob = `${current.title} ${current.description || ''} ${current.typology || ''} ${current.status || ''} ${JSON.stringify(current.specs || {})}`.toLowerCase();
+      const hasFloorPlans = textBlob.includes('floor plan') || textBlob.includes('2d plan') || textBlob.includes('floor plans');
+      const has3dElevations = textBlob.includes('3d elevation') || textBlob.includes('3d elevations') || textBlob.includes('3d visual');
+
+      const deliverables = [];
+      if (has3dElevations) deliverables.push('3D elevations');
+      if (hasFloorPlans) deliverables.push('floor plans');
+
+      const locText = current.town || current.location || 'Bankapur, Karnataka';
+      let metaDesc = '';
+      if (deliverables.length > 0) {
+        metaDesc = `${current.title} (${locText}). Architectural case study featuring ${deliverables.join(' and ')} by Er. Nadeem Keli, DESIGN HAUS.`;
+      } else if (current.category === 'sacred') {
+        metaDesc = `Architectural design study of ${current.title} in ${locText} by Er. Nadeem Keli, DESIGN HAUS.`;
+      } else if (current.category === 'interior') {
+        metaDesc = `Interior architectural design study: ${current.title} in ${locText} by Er. Nadeem Keli, DESIGN HAUS.`;
+      } else {
+        metaDesc = `Architectural design case study of ${current.title} in ${locText} by Er. Nadeem Keli, DESIGN HAUS.`;
+      }
+      if (metaDesc.length > 158) {
+        metaDesc = metaDesc.slice(0, 155) + '...';
+      }
+
+      const pageTitle = `${current.title} | DESIGN HAUS Presentation`;
+      document.title = pageTitle;
+
+      const rawCoverImg = (current.image || 'assets/brand/og-default.jpg').replace(/^\/+/, '');
+      const ogImgUrl = `https://designhauss.com/${rawCoverImg}`;
+
+      setMeta('meta[name="description"]', 'content', metaDesc);
+      setMeta('meta[property="og:title"]', 'content', `${current.title} | DESIGN HAUS`);
+      setMeta('meta[property="og:description"]', 'content', metaDesc);
+      setMeta('meta[property="og:url"]', 'content', canonicalUrl);
+      setMeta('meta[property="og:image"]', 'content', ogImgUrl);
+      setMeta('meta[name="twitter:title"]', 'content', `${current.title} | DESIGN HAUS`);
+      setMeta('meta[name="twitter:description"]', 'content', metaDesc);
+      setMeta('meta[name="twitter:image"]', 'content', ogImgUrl);
+
+      // 2. Headings & Badges
       const titleEl = document.getElementById('projectTitle');
       if (titleEl) titleEl.textContent = current.title;
 
@@ -43,18 +117,31 @@
         badgeTypology.textContent = current.typology || 'Architectural Study';
       }
 
-      // Main Visual
+      const leadSnippet = document.getElementById('projectLeadSnippet');
+      if (leadSnippet) {
+        if (current.category === 'sacred') {
+          leadSnippet.textContent = `A dedicated sacred architecture and mosque design initiative by Er. Nadeem Keli, engineered for spiritual tranquility, acoustic resonance, and community prominence in ${locText}.`;
+        } else if (current.category === 'interior') {
+          leadSnippet.textContent = `A tailored interior architecture and spatial curation study by Er. Nadeem Keli, balancing ambient illumination, custom joinery, and functional luxury in ${locText}.`;
+        } else if (current.category === 'commercial') {
+          leadSnippet.textContent = `A commercial architecture and structural engineering study by Er. Nadeem Keli, optimizing functional zoning, structural spans, and streetscape presence in ${locText}.`;
+        } else {
+          leadSnippet.textContent = `An original residential design study by Er. Nadeem Keli focusing on geometric massing, structural integrity, and refined contextual living in ${locText}.`;
+        }
+      }
+
+      // 3. Main Visual
       const mainImg = document.getElementById('projectMainImg');
       if (mainImg) {
         mainImg.src = current.image;
-        mainImg.alt = `${current.title} — Architectural design by Er. Nadeem Keli`;
+        mainImg.alt = `${current.title} — Architectural design by Er. Nadeem Keli, DESIGN HAUS`;
       }
 
-      // Multi-image documentation & execution gallery
+      // 4. Multi-image documentation & execution gallery
       const multiGallerySec = document.getElementById('multiGallerySection');
       const multiGalleryGrid = document.getElementById('multiGalleryGrid');
       if (multiGallerySec && multiGalleryGrid) {
-        if (current.images && current.images.length > 1) {
+        if (current.images && Array.isArray(current.images) && current.images.length > 1) {
           multiGallerySec.style.display = 'block';
           multiGalleryGrid.innerHTML = current.images.map((imgUrl, i) => `
             <div class="multi-gallery-item" data-img="${esc(imgUrl)}" title="Click to view perspective">
@@ -76,72 +163,158 @@
           });
         } else {
           multiGallerySec.style.display = 'none';
+          multiGalleryGrid.innerHTML = '';
         }
       }
 
-      // Specs
-      const specLoc = document.getElementById('specLocation');
-      if (specLoc) specLoc.textContent = current.location || 'Bankapur / Haveri, Karnataka';
+      // 5. Specs Grid (Optional fields: town, plotSize, builtUpArea, year, scope - never show empty/placeholder)
+      const specsGrid = document.getElementById('specsGrid');
+      if (specsGrid) {
+        const specItems = [];
 
-      const specDis = document.getElementById('specDiscipline');
-      if (specDis) {
-        if (current.category === 'sacred') specDis.textContent = 'Mosque & Community Architecture';
-        else if (current.category === 'interior') specDis.textContent = 'Interior Architecture & Renovation';
-        else specDis.textContent = 'Architecture, 2D Plans & 3D Elevation';
+        specItems.push({
+          label: 'Architect & Lead',
+          value: current.author || 'Er. Nadeem Keli'
+        });
+
+        const locationVal = current.town || current.location;
+        if (locationVal) {
+          specItems.push({
+            label: current.town ? 'Location / Town' : 'Location / Context',
+            value: locationVal
+          });
+        }
+
+        let disciplineVal = current.typology;
+        if (!disciplineVal) {
+          if (current.category === 'sacred') disciplineVal = 'Mosque & Community Architecture';
+          else if (current.category === 'interior') disciplineVal = 'Interior Architecture & Renovation';
+          else if (current.category === 'commercial') disciplineVal = 'Commercial Architecture & Engineering';
+          else disciplineVal = 'Architecture, 2D Plans & 3D Elevation';
+        }
+        if (disciplineVal) {
+          specItems.push({
+            label: 'Discipline',
+            value: disciplineVal
+          });
+        }
+
+        if (current.status) {
+          specItems.push({
+            label: 'Project Phase',
+            value: current.status
+          });
+        }
+
+        if (current.year) {
+          specItems.push({
+            label: 'Year',
+            value: current.year
+          });
+        }
+
+        const plotSizeVal = current.plotSize || current.specs?.plotSize;
+        if (plotSizeVal) {
+          specItems.push({
+            label: 'Plot Size',
+            value: plotSizeVal
+          });
+        }
+
+        const builtUpVal = current.builtUpArea || current.specs?.builtUpArea;
+        if (builtUpVal) {
+          specItems.push({
+            label: 'Built-up Area',
+            value: builtUpVal
+          });
+        }
+
+        const scopeVal = current.scope || current.specs?.scope;
+        if (scopeVal) {
+          specItems.push({
+            label: 'Project Scope',
+            value: scopeVal
+          });
+        }
+
+        specsGrid.innerHTML = specItems.map(item => `
+          <div class="project-spec-item">
+            <span>${esc(item.label)}</span>
+            <strong>${esc(item.value)}</strong>
+          </div>
+        `).join('');
       }
 
-      const specStat = document.getElementById('specStatus');
-      if (specStat) specStat.textContent = current.status || 'Original Design Concept Study';
-
-      // Narrative
+      // 6. Narrative
       const descEl = document.getElementById('projectDesc');
       if (descEl && current.description) {
         descEl.textContent = current.description;
       }
 
-      // Materials & Specs
+      const secEl = document.getElementById('projectDescSecondary');
+      if (secEl) {
+        if (current.category === 'sacred') {
+          secEl.textContent = 'Spatial flow is calibrated for congregational harmony, natural cross-ventilation, and dignified acoustic clarity throughout the prayer halls.';
+        } else if (current.category === 'interior') {
+          secEl.textContent = 'Material textures and layered illumination are tailored to evoke warmth, visual serenity, and seamless day-to-night transitions.';
+        } else if (current.category === 'commercial') {
+          secEl.textContent = 'Circulation and zoning are optimized to foster fluid customer movement, robust operational efficiency, and a distinguished street presence.';
+        } else {
+          secEl.textContent = 'Natural daylighting is channeled through strategically positioned openings and solar-shaded ribbon glazing, maintaining thermal comfort while celebrating tectonic honesty.';
+        }
+      }
+
+      // 7. Materials & Specs
       const matList = document.getElementById('materialsList');
       if (matList) {
         let items = [];
-        if (current.specs?.keyMaterials) {
+        if (current.specs?.keyMaterials && Array.isArray(current.specs.keyMaterials)) {
           items = current.specs.keyMaterials;
-        } else if (current.specs?.palette) {
+        } else if (current.specs?.palette && Array.isArray(current.specs.palette)) {
           items = current.specs.palette;
+        } else if (current.category === 'sacred') {
+          items = ['Reinforced Concrete Framework', 'Honed Stone Plinth', 'Geometric Jaali Tracery', 'Acoustic Vaulting'];
+        } else if (current.category === 'interior') {
+          items = ['Warm Wood Paneling', 'Ambient Recessed Lighting', 'Custom Cabinetry Joinery', 'Tactile Quartz Counters'];
         } else {
           items = ['Tectonic Concrete Plinth', 'Champagne Gold Louvers', 'Solar Glazing', 'Natural Travertine Finish'];
         }
         matList.innerHTML = items.map(m => `<li>${esc(m)}</li>`).join('');
       }
 
-      // Previous & Next Study Pagination
-      const currentIndex = allProjects.findIndex(p => p.id === current.id);
+      // 8. Previous & Next Study Pagination (Circular loop through all projects, clean URLs)
+      const currentIndex = allProjects.findIndex(p => p.id === current.id || p.slug === current.id);
       if (currentIndex !== -1) {
-        const prevP = allProjects[(currentIndex - 1 + allProjects.length) % allProjects.length];
-        const nextP = allProjects[(currentIndex + 1) % allProjects.length];
+        const prevIndex = (currentIndex - 1 + allProjects.length) % allProjects.length;
+        const nextIndex = (currentIndex + 1) % allProjects.length;
+        const prevP = allProjects[prevIndex];
+        const nextP = allProjects[nextIndex];
 
         const prevLink = document.getElementById('prevStudyLink');
         const prevTitle = document.getElementById('prevStudyTitle');
         if (prevLink && prevP) {
-          prevLink.href = `project-details.html?id=${prevP.id}`;
+          prevLink.href = `project-details?id=${encodeURIComponent(prevP.id)}`;
+          prevLink.setAttribute('aria-label', `Previous project: ${prevP.title}`);
           if (prevTitle) prevTitle.textContent = prevP.title;
         }
 
         const nextLink = document.getElementById('nextStudyLink');
         const nextTitle = document.getElementById('nextStudyTitle');
         if (nextLink && nextP) {
-          nextLink.href = `project-details.html?id=${nextP.id}`;
+          nextLink.href = `project-details?id=${encodeURIComponent(nextP.id)}`;
+          nextLink.setAttribute('aria-label', `Next project: ${nextP.title}`);
           if (nextTitle) nextTitle.textContent = nextP.title;
         }
       }
 
-      // Pre-select button in CTA
+      // 9. Pre-select button in CTA
       const discussBtn = document.getElementById('discussThisBtn');
       if (discussBtn) {
         const serviceParam = current.category === 'interior' ? 'interiors' : 'architecture';
-        discussBtn.href = `contact.html?service=${serviceParam}&project=${encodeURIComponent(current.title)}`;
+        discussBtn.href = `contact?service=${serviceParam}&project=${encodeURIComponent(current.title)}`;
       }
 
-      // Related Projects
+      // 10. Related Projects (Crawlable <a> links, clean URLs)
       const relatedGrid = document.getElementById('relatedGrid');
       if (relatedGrid) {
         const related = allProjects
@@ -149,12 +322,14 @@
           .slice(0, 3);
 
         relatedGrid.innerHTML = related.map(r => `
-          <article class="portfolio-card" onclick="window.location.href='project-details.html?id=${r.id}'">
-            <div class="thumb">
-              <img loading="lazy" src="${esc(r.image)}" alt="${esc(r.title)}">
-            </div>
-            <small>${r.category === 'interior' ? 'INTERIOR ARCHITECTURE' : 'ARCHITECTURE &amp; EXTERIOR'}</small>
-            <h3>${esc(r.title)}</h3>
+          <article class="portfolio-card" onclick="window.location.href='project-details?id=${encodeURIComponent(r.id)}'">
+            <a href="project-details?id=${encodeURIComponent(r.id)}" style="display:block;text-decoration:none;color:inherit;">
+              <div class="thumb">
+                <img loading="lazy" src="${esc(r.image)}" alt="${esc(r.title)} — DESIGN HAUS">
+              </div>
+              <small>${r.category === 'interior' ? 'INTERIOR ARCHITECTURE' : (r.category === 'sacred' ? 'SACRED ARCHITECTURE' : (r.category === 'commercial' ? 'COMMERCIAL ARCHITECTURE' : 'ARCHITECTURE &amp; EXTERIOR'))}</small>
+              <h3>${esc(r.title)}</h3>
+            </a>
           </article>
         `).join('');
       }
@@ -163,5 +338,10 @@
     }
   }
 
-  loadProjectDetails();
+  // Execute immediately
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadProjectDetails);
+  } else {
+    loadProjectDetails();
+  }
 })();

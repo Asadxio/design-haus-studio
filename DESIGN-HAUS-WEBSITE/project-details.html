@@ -22,6 +22,22 @@
 <meta name="twitter:description" content="Original architectural design study by Er. Nadeem Keli.">
 <meta name="twitter:image" content="https://designhauss.com/assets/brand/og-default.jpg">
 <meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="preload" href="assets/projects.json" as="fetch" crossorigin="anonymous">
+<script>
+(function(){
+  try {
+    var p = new URLSearchParams(window.location.search);
+    var id = (p.get('id') || p.get('slug') || '').trim().replace(/\/+$/, '');
+    if (id) {
+      var fullUrl = 'https://designhauss.com/project-details?id=' + encodeURIComponent(id);
+      var can = document.querySelector('link[rel="canonical"]');
+      if (can) can.setAttribute('href', fullUrl);
+      var ogU = document.querySelector('meta[property="og:url"]');
+      if (ogU) ogU.setAttribute('content', fullUrl);
+    }
+  } catch(e) {}
+})();
+</script>
 <link rel="icon" href="assets/brand/design-haus-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,6 +71,17 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://designhauss.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://designhauss.com/projects" },
+    { "@type": "ListItem", "position": 3, "name": "Project Details", "item": "https://designhauss.com/project-details" }
+  ]
+}
+</script>
 <style>
 .project-details-wrap{padding-top:40px;padding-bottom:110px}
 .project-nav-back{display:inline-flex;align-items:center;gap:12px;font-size:12px;font-weight:700;letter-spacing:.14em;color:#9e8357;text-transform:uppercase;margin-bottom:35px;transition:transform .2s}
@@ -67,7 +94,7 @@
 .project-lead-visual{position:relative;width:100%;min-height:540px;max-height:85vh;overflow:hidden;background:#ded8cd;margin-bottom:60px;box-shadow:0 30px 80px rgba(0,0,0,.15)}
 .project-lead-visual img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
 .project-lead-visual:hover img{transform:scale(1.02)}
-.project-specs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:25px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:35px 0;margin-bottom:65px}
+.project-specs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:25px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:35px 0;margin-bottom:65px}
 .project-spec-item span{display:block;font-size:10px;letter-spacing:.18em;color:#948671;text-transform:uppercase;margin-bottom:8px}
 .project-spec-item strong{font:500 18px var(--serif);color:#171714}
 .project-content-body{display:grid;grid-template-columns:1.15fr .85fr;gap:10%;margin-bottom:90px}
@@ -141,13 +168,13 @@
 </header>
 
 <main class="project-details-wrap section-shell">
-  <a href="projects.html" class="project-nav-back" data-i18n="details_back">← Back to Curated Portfolio</a>
+  <a href="projects" class="project-nav-back" data-i18n="details_back">← Back to Curated Portfolio</a>
 
   <div class="project-head-layout">
     <div>
       <div class="project-badge-row" id="badgeRow">
         <span class="project-badge gold" id="badgeCategory">Architecture</span>
-        <span class="project-badge" id="badgeTypology">Private Residence</span>
+        <span class="project-badge" id="badgeTypology">Architectural Study</span>
       </div>
       <h1 id="projectTitle">Architectural Design Study</h1>
     </div>
@@ -188,7 +215,7 @@
       <p id="projectDesc">
         Every project at DESIGN HAUS begins with a rigorous dialogue between spatial efficiency and visual restraint. This study explores the dialogue between solid stone plinths and floating cantilevered volumes.
       </p>
-      <p>
+      <p id="projectDescSecondary">
         Natural daylighting is channeled through recessed vertical slits and solar-shaded ribbon glazing, maintaining thermal comfort while celebrating tectonic honesty.
       </p>
     </div>
@@ -202,7 +229,7 @@
           <li>Honed Travertine Base Plinth</li>
         </ul>
         <div style="margin-top:30px;">
-          <a id="discussThisBtn" href="contact.html" class="btn-dark" style="width:100%;text-align:center;justify-content:center;" data-i18n="details_discuss_btn">
+          <a id="discussThisBtn" href="contact" class="btn-dark" style="width:100%;text-align:center;justify-content:center;" data-i18n="details_discuss_btn">
             Discuss A Brief Like This <b>↗</b>
           </a>
         </div>
@@ -225,19 +252,19 @@
       <p data-i18n="details_cta_desc">Consult with Er. Nadeem Keli on your residential, commercial or sacred architecture brief across Bankapur, Savanur, Haveri and North Karnataka.</p>
     </div>
     <div>
-      <a href="contact.html" class="btn-gold" style="white-space:nowrap;" data-i18n="nav_cta">
+      <a href="contact" class="btn-gold" style="white-space:nowrap;" data-i18n="nav_cta">
         Start Your Project <b>↗</b>
       </a>
     </div>
   </div>
 
   <div class="project-pagination-bar" id="paginationBar">
-    <a id="prevStudyLink" class="proj-page-btn" href="#">
+    <a id="prevStudyLink" class="proj-page-btn" href="projects">
       <small data-i18n="details_prev">← PREVIOUS STUDY</small>
       <b id="prevStudyTitle">Previous Project</b>
     </a>
-    <a href="projects.html" class="proj-page-all" data-i18n="details_all_btn">ALL 90 PROJECTS</a>
-    <a id="nextStudyLink" class="proj-page-btn next" href="#">
+    <a href="projects" class="proj-page-all" data-i18n="details_all_btn">ALL 90 PROJECTS</a>
+    <a id="nextStudyLink" class="proj-page-btn next" href="projects">
       <small data-i18n="details_next">NEXT STUDY →</small>
       <b id="nextStudyTitle">Next Project</b>
     </a>
