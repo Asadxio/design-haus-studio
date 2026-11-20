@@ -186,7 +186,7 @@
           });
         }
 
-        if (current.year) {
+        if (current.year && current.year !== '2024–2026') {
           specItems.push({
             label: 'Year',
             value: current.year

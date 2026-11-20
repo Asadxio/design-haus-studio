@@ -1,934 +1,573 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://designhauss.com/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://designhauss.com/studio</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://designhauss.com/services</loc>
-    <lastmod>2026-11-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://designhauss.com/projects</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://designhauss.com/projects</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://designhauss.com/contact</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-sacred-bilal</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-sacred-bilal</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/sacred/bilal-masjid/01.webp</image:loc>
-      <image:title>Bilal Masjid Architectural Project</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-sacred-hsaq</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-sacred-hsaq</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/sacred/hsaq-masjid/01.webp</image:loc>
-      <image:title>HSAQ Masjid Project, Bankapur</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-sacred-jamiya</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-sacred-jamiya</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/sacred/jamiya-masjid/01.webp</image:loc>
-      <image:title>Jamiya Masjid Architectural Complex</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-sacred-mundagod</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-sacred-mundagod</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/sacred/mundagod-masjid/01.webp</image:loc>
-      <image:title>Mundagod Masjid Architectural Project</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-sacred-edgah</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-sacred-edgah</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/sacred/edgah-project/01.webp</image:loc>
-      <image:title>Edgah Community Architecture Project</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ong-res-01</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ong-res-01</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/residential/residence-01/01.webp</image:loc>
-      <image:title>Contemporary Residence 01</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ong-res-02</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ong-res-02</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/residential/residence-02/01.webp</image:loc>
-      <image:title>Modern Luxury Residence 02</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ong-res-03</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ong-res-03</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/residential/residence-03/01.webp</image:loc>
-      <image:title>Refined Modern Residence 03</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ong-res-04</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ong-res-04</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/residential/residence-04/01.webp</image:loc>
-      <image:title>Contemporary Duplex Residence 04</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-int-suite-01</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-int-suite-01</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/interiors/interior-ip01/01.webp</image:loc>
-      <image:title>Modern Luxury Living  Dining Suite IP01</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-int-suite-02</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-int-suite-02</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/interiors/interior-ip02/01.webp</image:loc>
-      <image:title>Comprehensive Master Villa Interior IP02</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-int-suite-03</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-int-suite-03</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/interiors/interior-ip03/01.webp</image:loc>
-      <image:title>Warm Minimalist Interior Suite IP03</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-int-suite-04</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-int-suite-04</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/interiors/interior-ip04/01.webp</image:loc>
-      <image:title>Contemporary Bedroom  Living Suite IP04</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-int-suite-05</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-int-suite-05</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/interiors/interior-ip05/01.webp</image:loc>
-      <image:title>Bespoke Spatial Interior Suite IP05</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-int-suite-06</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-int-suite-06</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/interiors/interior-ip06/01.webp</image:loc>
-      <image:title>Refined Detail Interior Suite IP06</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-study-01</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-study-01</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/exterior-studies/exterior-study-01.webp</image:loc>
-      <image:title>Architectural Elevation Study 01</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-study-02</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-study-02</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/exterior-studies/exterior-study-02.webp</image:loc>
-      <image:title>Architectural Elevation Study 02</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-study-03</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-study-03</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/exterior-studies/exterior-study-03.webp</image:loc>
-      <image:title>Architectural Elevation Study 03</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-study-04</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-study-04</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/exterior-studies/exterior-study-04.webp</image:loc>
-      <image:title>Architectural Elevation Study 04</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-study-05</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-study-05</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/exterior-studies/exterior-study-05.webp</image:loc>
-      <image:title>Architectural Elevation Study 05</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-study-06</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-study-06</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/exterior-studies/exterior-study-06.webp</image:loc>
-      <image:title>Architectural Elevation Study 06</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-study-07</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-study-07</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/exterior-studies/exterior-study-07.webp</image:loc>
-      <image:title>Architectural Elevation Study 07</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-study-08</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-study-08</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/exterior-studies/exterior-study-08.webp</image:loc>
-      <image:title>Architectural Elevation Study 08</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-study-09</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-study-09</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/exterior-studies/exterior-study-09.webp</image:loc>
-      <image:title>Architectural Elevation Study 09</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-study-10</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-study-10</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/exterior-studies/exterior-study-10.webp</image:loc>
-      <image:title>Architectural Elevation Study 10</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-study-11</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-study-11</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/exterior-studies/exterior-study-11.webp</image:loc>
-      <image:title>Architectural Elevation Study 11</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-study-12</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-study-12</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/exterior-studies/exterior-study-12.webp</image:loc>
-      <image:title>Architectural Elevation Study 12</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-study-13</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-study-13</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/exterior-studies/exterior-study-13.webp</image:loc>
-      <image:title>Architectural Elevation Study 13</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-study-14</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-study-14</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/exterior-studies/exterior-study-14.webp</image:loc>
-      <image:title>Architectural Elevation Study 14</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-study-15</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-study-15</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/exterior-studies/exterior-study-15.webp</image:loc>
-      <image:title>Architectural Elevation Study 15</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-study-16</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-study-16</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/exterior-studies/exterior-study-16.webp</image:loc>
-      <image:title>Architectural Elevation Study 16</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-study-17</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-study-17</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/exterior-studies/exterior-study-17.webp</image:loc>
-      <image:title>Architectural Elevation Study 17</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-study-18</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-study-18</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/exterior-studies/exterior-study-18.webp</image:loc>
-      <image:title>Architectural Elevation Study 18</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-int-study-01</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-int-study-01</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/interior-studies/interior-study-01.webp</image:loc>
-      <image:title>Spatial Interior Study 01</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-int-study-02</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-int-study-02</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/interior-studies/interior-study-02.webp</image:loc>
-      <image:title>Spatial Interior Study 02</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-int-study-03</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-int-study-03</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/interior-studies/interior-study-03.webp</image:loc>
-      <image:title>Spatial Interior Study 03</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-int-study-04</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-int-study-04</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/interior-studies/interior-study-04.webp</image:loc>
-      <image:title>Spatial Interior Study 04</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-int-study-05</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-int-study-05</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/interior-studies/interior-study-05.webp</image:loc>
-      <image:title>Spatial Interior Study 05</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-int-study-06</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-int-study-06</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/interior-studies/interior-study-06.webp</image:loc>
-      <image:title>Spatial Interior Study 06</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-int-study-07</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-int-study-07</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/interior-studies/interior-study-07.webp</image:loc>
-      <image:title>Spatial Interior Study 07</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-int-study-08</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-int-study-08</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/portfolio/interior-studies/interior-study-08.webp</image:loc>
-      <image:title>Spatial Interior Study 08</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-01</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-01</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-01.webp</image:loc>
-      <image:title>Contemporary Cantilevered Residence</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-02</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-02</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-02.webp</image:loc>
-      <image:title>Modern Courtyard Villa Concept</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-03</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-03</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-03.webp</image:loc>
-      <image:title>Urban Linear Home with Champagne Fins</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-04</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-04</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-04.webp</image:loc>
-      <image:title>Minimalist Dual-Volume Residence</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-05</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-05</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-05.webp</image:loc>
-      <image:title>Framed Plinth Villa with Glass Corner</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-06</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-06</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-06.webp</image:loc>
-      <image:title>Grand Portico Residence Study</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-07</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-07</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-07.webp</image:loc>
-      <image:title>Terraced Multi-Level Family Home</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-08</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-08</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-08.webp</image:loc>
-      <image:title>Monolithic Stone  Gold Accented Villa</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-09</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-09</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-09.webp</image:loc>
-      <image:title>Floating Balcony Residential Study</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-10</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-10</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-10.webp</image:loc>
-      <image:title>Sculptural Facade Residence</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-11</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-11</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-11.webp</image:loc>
-      <image:title>Symmetrical Classical Modern House</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-12</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-12</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-12.webp</image:loc>
-      <image:title>Vertical Louver Contemporary Home</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-13</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-13</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-13.webp</image:loc>
-      <image:title>Wide-Span Cantilever Luxury Villa</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-14</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-14</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-14.webp</image:loc>
-      <image:title>Staggered Block Architecture Concept</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-15</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-15</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-15.webp</image:loc>
-      <image:title>Nordic-Inspired Earth Tone Residence</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-16</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-16</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-16.webp</image:loc>
-      <image:title>Geometric Screen Pavilion Villa</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-17</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-17</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-17.webp</image:loc>
-      <image:title>High-Ceiling Contemporary Residence</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-18</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-18</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-18.webp</image:loc>
-      <image:title>Compact Urban Planning Residence</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-19</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-19</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-19.webp</image:loc>
-      <image:title>Linear Screened Modern Villa</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-20</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-20</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-20.webp</image:loc>
-      <image:title>Triple-Level Executive Residence</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-21</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-21</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-21.webp</image:loc>
-      <image:title>Open-Terrace Courtyard House</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-22</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-22</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-22.webp</image:loc>
-      <image:title>Double-Height Portal Architecture Study</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-23</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-23</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-23.webp</image:loc>
-      <image:title>Warm Travertine Modern Villa</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-24</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-24</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-24.webp</image:loc>
-      <image:title>Angular Roofline Concept House</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-25</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-25</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-25.webp</image:loc>
-      <image:title>Luxe Horizon Villa with Deep Overhangs</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-26</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-26</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-26.webp</image:loc>
-      <image:title>Floating Canopy Residential Concept</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-27</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-27</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-27.webp</image:loc>
-      <image:title>Framed Glass Box Contemporary Villa</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-28</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-28</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-28.webp</image:loc>
-      <image:title>Multi-Tiered Terraced Residence</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-29</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-29</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-29.webp</image:loc>
-      <image:title>Cantilevered Upper Volume Villa</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-30</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-30</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-30.webp</image:loc>
-      <image:title>Brutalist-Modern Hybrid House</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-31</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-31</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-31.webp</image:loc>
-      <image:title>Reflective Glass Panorama Residence</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-32</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-32</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-32.webp</image:loc>
-      <image:title>Pillar-Framed Entrance Villa Study</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-33</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-33</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-33.webp</image:loc>
-      <image:title>Sunlit Garden Residence Concept</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-34</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-34</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-34.webp</image:loc>
-      <image:title>Curated Corner-Plot Family Villa</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-35</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-35</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-35.webp</image:loc>
-      <image:title>HSAQ Masjid Main Facade Study, Bankapur</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-36</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-36</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-36.webp</image:loc>
-      <image:title>HSAQ Masjid Minaret  Dome Architecture</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-ext-37</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-ext-37</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/exterior-37.webp</image:loc>
-      <image:title>HSAQ Masjid Spatial Courtyard Concept</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-int-01</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-int-01</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/interior-01.webp</image:loc>
-      <image:title>Minimalist Marble  Teak Living Suite</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-int-02</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-int-02</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/interior-02.webp</image:loc>
-      <image:title>Curated Contemporary Master Suite</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-int-03</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-int-03</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/interior-03.webp</image:loc>
-      <image:title>Acoustic Wood-Panelled Family Lounge</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-int-04</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-int-04</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/interior-04.webp</image:loc>
-      <image:title>Double-Height Open Living  Dining</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-int-05</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-int-05</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/interior-05.webp</image:loc>
-      <image:title>Warm Champagne Gold Accent Lounge</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-int-06</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-int-06</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/interior-06.webp</image:loc>
-      <image:title>Sleek Concealed-Lighting Dining Space</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-int-07</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-int-07</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/interior-07.webp</image:loc>
-      <image:title>Bespoke Fluted-Wall Master Bedroom</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-int-08</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-int-08</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/interior-08.webp</image:loc>
-      <image:title>Monochrome Executive Study  Library</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-int-09</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-int-09</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/interior-09.webp</image:loc>
-      <image:title>Warm Stone Modern Culinary Kitchen</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-int-10</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-int-10</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/interior-10.webp</image:loc>
-      <image:title>Luxury Powder Room  Vanity Concept</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-int-11</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-int-11</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/interior-11.webp</image:loc>
-      <image:title>Illuminated Staircase Foyer Architecture</image:title>
-    </image:image>
   </url>
   <url>
-    <loc>https://designhauss.com/project-details?id=dh-int-12</loc>
-    <lastmod>2026-11-18</lastmod>
+    <loc>https://designhauss.com/projects/dh-int-12</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://designhauss.com/assets/projects/interior-12.webp</image:loc>
-      <image:title>Ambient Penthouse Reception Lounge</image:title>
-    </image:image>
   </url>
 </urlset>

@@ -1,8 +1,7 @@
 (() => {
-  let allProjects = [];
-  let filteredProjects = [];
-  let currentFilteredIndex = 0;
   let activeFilter = 'all';
+  let visibleCards = [];
+  let currentViewerIndex = 0;
 
   const grid = document.getElementById('portfolioGrid');
   const viewer = document.getElementById('imageViewer');
@@ -19,143 +18,86 @@
     }[c]));
   }
 
-  const cfg = window.DESIGN_HAUS_CONFIG;
-  const db = (cfg && cfg.supabaseUrl && !cfg.supabaseUrl.includes('YOUR-PROJECT') &&
-              cfg.supabaseAnonKey && !cfg.supabaseAnonKey.includes('YOUR_') && window.supabase)
-              ? window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseAnonKey)
-              : null;
-
-  async function init() {
-    try {
-      const local = await fetch('assets/projects.json').then(r => {
-        if (!r.ok) throw new Error('Could not load local project collection');
-        return r.json();
-      });
-
-      let live = [];
-      if (db) {
-        const { data, error } = await db.from('projects')
-          .select('*')
-          .order('created_at', { ascending: false });
-        if (!error && data) {
-          live = data.map(p => ({
-            ...p,
-            image: p.image_url,
-            filterGroup: p.category,
-            source: 'studio'
-          }));
-        } else if (error) {
-          console.warn('Live projects unavailable:', error.message);
-        }
-      }
-
-      allProjects = [...live, ...local];
-
-      // Auto-activate filter from URL parameter (e.g. projects.html?category=interior)
-      const urlParams = new URLSearchParams(window.location.search);
-      const catParam = urlParams.get('category') || urlParams.get('filter');
-      if (catParam) {
-        const normalized = catParam.toLowerCase();
-        if (['exterior', 'interior', 'commercial', 'residential', 'sacred', 'all'].includes(normalized)) {
-          activeFilter = normalized;
-          document.querySelectorAll('.portfolio-filters button').forEach(b => {
-            b.classList.toggle('active', b.dataset.filter === normalized);
-          });
-        }
-      }
-
-      updateFilterCounts();
-      render();
-    } catch (e) {
-      if (grid) {
-        grid.innerHTML = '<p class="loading">Our portfolio is being updated. Please contact us to view selected work.</p>';
-      }
-      console.error(e);
-    }
+  function getCards() {
+    if (!grid) return [];
+    return Array.from(grid.querySelectorAll('.portfolio-card'));
   }
 
   function updateFilterCounts() {
-    const total = allProjects.length;
-    const ext = allProjects.filter(p => p.category === 'exterior' || p.category === 'residential').length;
-    const sacred = allProjects.filter(p => p.category === 'sacred').length;
-    const int = allProjects.filter(p => p.category === 'interior').length;
-    const comm = allProjects.filter(p => p.category === 'commercial').length;
+    const cards = getCards();
+    const total = cards.length;
+    const ext = cards.filter(c => c.dataset.category === 'exterior').length;
+    const sacred = cards.filter(c => c.dataset.category === 'sacred').length;
+    const int = cards.filter(c => c.dataset.category === 'interior').length;
+    const comm = cards.filter(c => c.dataset.category === 'commercial').length;
 
-    const allBtn = document.querySelector('[data-filter="all"] sup');
-    const extBtn = document.querySelector('[data-filter="exterior"] sup');
-    const sacredBtn = document.querySelector('[data-filter="sacred"] sup');
-    const intBtn = document.querySelector('[data-filter="interior"] sup');
-    const commBtn = document.querySelector('[data-filter="commercial"] sup');
+    const allSup = document.querySelector('[data-filter="all"] sup');
+    const extSup = document.querySelector('[data-filter="exterior"] sup');
+    const sacredSup = document.querySelector('[data-filter="sacred"] sup');
+    const intSup = document.querySelector('[data-filter="interior"] sup');
+    const commSup = document.querySelector('[data-filter="commercial"] sup');
 
-    if (allBtn) allBtn.textContent = total;
-    if (extBtn) extBtn.textContent = ext;
-    if (sacredBtn) sacredBtn.textContent = sacred;
-    if (intBtn) intBtn.textContent = int;
-    if (commBtn) commBtn.textContent = comm;
+    if (allSup) allSup.textContent = total;
+    if (extSup) extSup.textContent = ext;
+    if (sacredSup) sacredSup.textContent = sacred;
+    if (intSup) intSup.textContent = int;
+    if (commSup) commSup.textContent = comm;
   }
 
-  function render() {
-    filteredProjects = allProjects.filter(p => {
-      if (activeFilter === 'all') return true;
-      if (activeFilter === 'sacred') return p.category === 'sacred';
-      if (activeFilter === 'exterior') return p.category === 'exterior' || p.category === 'residential';
-      if (activeFilter === 'interior') return p.category === 'interior';
-      if (activeFilter === 'commercial') return p.category === 'commercial';
-      return p.category === activeFilter;
+  function applyFilter(filterName) {
+    activeFilter = filterName || 'all';
+    const cards = getCards();
+
+    visibleCards = [];
+    cards.forEach(card => {
+      const cat = card.dataset.category;
+      const matches = (activeFilter === 'all' || cat === activeFilter);
+      if (matches) {
+        card.style.display = '';
+        visibleCards.push(card);
+      } else {
+        card.style.display = 'none';
+      }
     });
 
     const countEl = document.getElementById('resultCount');
-    if (countEl) countEl.textContent = `${filteredProjects.length} CURATED STUDIES`;
-
-    if (!grid) return;
-
-    if (!filteredProjects.length) {
-      grid.innerHTML = '<p class="empty" style="grid-column:1/-1;text-align:center;padding:50px 0;color:#8a8377;">No design studies found in this category.</p>';
-      return;
+    if (countEl) {
+      countEl.textContent = `${visibleCards.length} CURATED STUDIES`;
     }
 
-    grid.innerHTML = filteredProjects.map((p, i) => `
-      <article class="portfolio-card" data-filtered-index="${i}">
-        <div class="thumb" title="Click to enlarge" style="position:relative;">
-          <img loading="lazy" src="${esc(p.image)}" alt="${esc(p.title)} — original design study by Er. Nadeem Keli">
-          ${p.images && p.images.length > 1 ? `<span class="photo-count-badge">${p.images.length} Photos</span>` : ''}
-        </div>
-        <div class="card-meta">
-          <small>${p.category === 'sacred' ? 'SACRED ARCHITECTURE' : (p.category === 'interior' ? 'INTERIOR ARCHITECTURE' : (p.category === 'commercial' ? 'COMMERCIAL DESIGN' : 'ARCHITECTURE &amp; EXTERIOR'))}</small>
-          <h3><a href="project-details.html?id=${esc(p.id || p.slug)}" style="color:inherit;">${esc(p.title)}</a></h3>
-          <div class="card-actions">
-            <a href="project-details.html?id=${esc(p.id || p.slug)}" class="card-detail-link">Case Study ↗</a>
-          </div>
-        </div>
-      </article>
-    `).join('');
-
-    grid.querySelectorAll('.portfolio-card .thumb').forEach(el => {
-      el.addEventListener('click', (e) => {
-        const card = el.closest('.portfolio-card');
-        if (card) openViewer(+card.dataset.filteredIndex);
-      });
+    // Active button state
+    document.querySelectorAll('.portfolio-filters button').forEach(b => {
+      b.classList.toggle('active', (b.dataset.filter || 'all') === activeFilter);
     });
   }
 
-  function openViewer(filteredIndex) {
-    if (!filteredProjects.length) return;
-    currentFilteredIndex = Math.max(0, Math.min(filteredProjects.length - 1, filteredIndex));
-    const p = filteredProjects[currentFilteredIndex];
-    if (!p) return;
+  function openViewer(cardIndex) {
+    if (!visibleCards.length) return;
+    currentViewerIndex = Math.max(0, Math.min(visibleCards.length - 1, cardIndex));
+    const card = visibleCards[currentViewerIndex];
+    if (!card) return;
 
-    if (viewImg) {
-      viewImg.src = p.image;
-      viewImg.alt = p.title;
+    const overlay = card.querySelector('.card-overlay');
+    const titleEl = card.querySelector('.card-title a');
+    const imgSrc = overlay?.getAttribute('data-viewer-img') || card.querySelector('img')?.getAttribute('src');
+    const title = titleEl ? titleEl.textContent : (overlay?.getAttribute('data-viewer-title') || 'DESIGN HAUS Project');
+    const projectId = card.dataset.id;
+
+    if (viewImg && imgSrc) {
+      viewImg.src = imgSrc;
+      viewImg.alt = title;
     }
+
     if (caption) {
       caption.innerHTML = `
-        <span>${esc(p.title)} · DESIGN HAUS</span>
-        <a href="project-details.html?id=${esc(p.id || p.slug)}" style="margin-left:20px;color:#c6a46a;text-decoration:underline;">View Full Study ↗</a>
+        <span>${esc(title)} · DESIGN HAUS</span>
+        ${projectId ? `<a href="/projects/${esc(projectId)}" style="margin-left:20px;color:#c6a46a;text-decoration:underline;">View Full Study ↗</a>` : ''}
       `;
     }
+
     if (viewer) {
       viewer.classList.add('open');
+      viewer.removeAttribute('hidden');
       viewer.setAttribute('aria-hidden', 'false');
     }
     document.body.style.overflow = 'hidden';
@@ -164,42 +106,72 @@
   function closeViewer() {
     if (viewer) {
       viewer.classList.remove('open');
+      viewer.setAttribute('hidden', '');
       viewer.setAttribute('aria-hidden', 'true');
     }
     document.body.style.overflow = '';
   }
 
   function step(dir) {
-    if (!filteredProjects.length) return;
-    currentFilteredIndex = (currentFilteredIndex + dir + filteredProjects.length) % filteredProjects.length;
-    openViewer(currentFilteredIndex);
+    if (!visibleCards.length) return;
+    currentViewerIndex = (currentViewerIndex + dir + visibleCards.length) % visibleCards.length;
+    openViewer(currentViewerIndex);
   }
 
-  // Filter click handlers
-  document.querySelectorAll('.portfolio-filters button').forEach(b => {
-    b.addEventListener('click', () => {
-      document.querySelectorAll('.portfolio-filters button').forEach(x => x.classList.toggle('active', x === b));
-      activeFilter = b.dataset.filter || 'all';
-      render();
-    });
-  });
+  function init() {
+    updateFilterCounts();
 
-  // Viewer controls
-  if (viewer) {
-    viewer.querySelector('.viewer-close')?.addEventListener('click', closeViewer);
-    viewer.querySelector('.viewer-prev')?.addEventListener('click', () => step(-1));
-    viewer.querySelector('.viewer-next')?.addEventListener('click', () => step(1));
-    viewer.addEventListener('click', e => {
-      if (e.target === viewer) closeViewer();
+    // Check URL parameters for active category
+    const urlParams = new URLSearchParams(window.location.search);
+    const catParam = (urlParams.get('category') || urlParams.get('filter') || '').toLowerCase();
+    if (['exterior', 'sacred', 'interior', 'commercial'].includes(catParam)) {
+      applyFilter(catParam);
+    } else {
+      applyFilter('all');
+    }
+
+    // Filter button event listeners
+    document.querySelectorAll('.portfolio-filters button').forEach(b => {
+      b.addEventListener('click', () => {
+        applyFilter(b.dataset.filter || 'all');
+      });
+    });
+
+    // Quick view overlay click
+    if (grid) {
+      grid.addEventListener('click', e => {
+        const overlay = e.target.closest('.card-overlay');
+        if (overlay) {
+          e.preventDefault();
+          e.stopPropagation();
+          const card = overlay.closest('.portfolio-card');
+          const idx = visibleCards.indexOf(card);
+          if (idx !== -1) openViewer(idx);
+        }
+      });
+    }
+
+    // Modal viewer controls
+    if (viewer) {
+      viewer.querySelector('.viewer-close')?.addEventListener('click', closeViewer);
+      viewer.querySelector('.viewer-prev')?.addEventListener('click', () => step(-1));
+      viewer.querySelector('.viewer-next')?.addEventListener('click', () => step(1));
+      viewer.addEventListener('click', e => {
+        if (e.target === viewer) closeViewer();
+      });
+    }
+
+    document.addEventListener('keydown', e => {
+      if (!viewer || !viewer.classList.contains('open')) return;
+      if (e.key === 'Escape') closeViewer();
+      if (e.key === 'ArrowRight') step(1);
+      if (e.key === 'ArrowLeft') step(-1);
     });
   }
 
-  document.addEventListener('keydown', e => {
-    if (!viewer || !viewer.classList.contains('open')) return;
-    if (e.key === 'Escape') closeViewer();
-    if (e.key === 'ArrowRight') step(1);
-    if (e.key === 'ArrowLeft') step(-1);
-  });
-
-  init();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();
