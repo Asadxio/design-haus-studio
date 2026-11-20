@@ -61,26 +61,9 @@
       const canonicalUrl = `https://designhauss.com/project-details?id=${encodeURIComponent(current.id)}`;
       setCanonical(canonicalUrl);
 
-      // Check deliverables in actual project data: never promise floor plans or 3D elevations unless present
-      const textBlob = `${current.title} ${current.description || ''} ${current.typology || ''} ${current.status || ''} ${JSON.stringify(current.specs || {})}`.toLowerCase();
-      const hasFloorPlans = textBlob.includes('floor plan') || textBlob.includes('2d plan') || textBlob.includes('floor plans');
-      const has3dElevations = textBlob.includes('3d elevation') || textBlob.includes('3d elevations') || textBlob.includes('3d visual');
-
-      const deliverables = [];
-      if (has3dElevations) deliverables.push('3D elevations');
-      if (hasFloorPlans) deliverables.push('floor plans');
-
       const locText = current.town || current.location || 'Bankapur, Karnataka';
-      let metaDesc = '';
-      if (deliverables.length > 0) {
-        metaDesc = `${current.title} (${locText}). Architectural case study featuring ${deliverables.join(' and ')} by Er. Nadeem Keli, DESIGN HAUS.`;
-      } else if (current.category === 'sacred') {
-        metaDesc = `Architectural design study of ${current.title} in ${locText} by Er. Nadeem Keli, DESIGN HAUS.`;
-      } else if (current.category === 'interior') {
-        metaDesc = `Interior architectural design study: ${current.title} in ${locText} by Er. Nadeem Keli, DESIGN HAUS.`;
-      } else {
-        metaDesc = `Architectural design case study of ${current.title} in ${locText} by Er. Nadeem Keli, DESIGN HAUS.`;
-      }
+      const typeText = current.typology || (current.category ? current.category.charAt(0).toUpperCase() + current.category.slice(1) : 'Architecture');
+      let metaDesc = `${current.title} — ${typeText} in ${locText} by Er. Nadeem Keli, DESIGN HAUS.`;
       if (metaDesc.length > 158) {
         metaDesc = metaDesc.slice(0, 155) + '...';
       }
@@ -119,15 +102,12 @@
 
       const leadSnippet = document.getElementById('projectLeadSnippet');
       if (leadSnippet) {
-        if (current.category === 'sacred') {
-          leadSnippet.textContent = `A dedicated sacred architecture and mosque design initiative by Er. Nadeem Keli, engineered for spiritual tranquility, acoustic resonance, and community prominence in ${locText}.`;
-        } else if (current.category === 'interior') {
-          leadSnippet.textContent = `A tailored interior architecture and spatial curation study by Er. Nadeem Keli, balancing ambient illumination, custom joinery, and functional luxury in ${locText}.`;
-        } else if (current.category === 'commercial') {
-          leadSnippet.textContent = `A commercial architecture and structural engineering study by Er. Nadeem Keli, optimizing functional zoning, structural spans, and streetscape presence in ${locText}.`;
-        } else {
-          leadSnippet.textContent = `An original residential design study by Er. Nadeem Keli focusing on geometric massing, structural integrity, and refined contextual living in ${locText}.`;
-        }
+        const parts = [];
+        if (current.typology) parts.push(current.typology);
+        else if (current.category) parts.push(current.category.toUpperCase());
+        if (current.town || current.location) parts.push(current.town || current.location);
+        if (current.author) parts.push(current.author);
+        leadSnippet.textContent = parts.join(' · ');
       }
 
       // 3. Main Visual
@@ -245,41 +225,35 @@
         `).join('');
       }
 
-      // 6. Narrative
+      // 6. Narrative (Strictly real project description, zero invented paragraphs)
       const descEl = document.getElementById('projectDesc');
-      if (descEl && current.description) {
-        descEl.textContent = current.description;
+      if (descEl) {
+        descEl.textContent = current.description || '';
       }
 
       const secEl = document.getElementById('projectDescSecondary');
       if (secEl) {
-        if (current.category === 'sacred') {
-          secEl.textContent = 'Spatial flow is calibrated for congregational harmony, natural cross-ventilation, and dignified acoustic clarity throughout the prayer halls.';
-        } else if (current.category === 'interior') {
-          secEl.textContent = 'Material textures and layered illumination are tailored to evoke warmth, visual serenity, and seamless day-to-night transitions.';
-        } else if (current.category === 'commercial') {
-          secEl.textContent = 'Circulation and zoning are optimized to foster fluid customer movement, robust operational efficiency, and a distinguished street presence.';
-        } else {
-          secEl.textContent = 'Natural daylighting is channeled through strategically positioned openings and solar-shaded ribbon glazing, maintaining thermal comfort while celebrating tectonic honesty.';
-        }
+        secEl.remove();
       }
 
-      // 7. Materials & Specs
+      // 7. Materials & Specs (Show only if genuine data exists in current.specs)
+      const matCard = document.getElementById('materialsCard');
       const matList = document.getElementById('materialsList');
       if (matList) {
         let items = [];
-        if (current.specs?.keyMaterials && Array.isArray(current.specs.keyMaterials)) {
+        if (current.specs?.keyMaterials && Array.isArray(current.specs.keyMaterials) && current.specs.keyMaterials.length > 0) {
           items = current.specs.keyMaterials;
-        } else if (current.specs?.palette && Array.isArray(current.specs.palette)) {
+        } else if (current.specs?.palette && Array.isArray(current.specs.palette) && current.specs.palette.length > 0) {
           items = current.specs.palette;
-        } else if (current.category === 'sacred') {
-          items = ['Reinforced Concrete Framework', 'Honed Stone Plinth', 'Geometric Jaali Tracery', 'Acoustic Vaulting'];
-        } else if (current.category === 'interior') {
-          items = ['Warm Wood Paneling', 'Ambient Recessed Lighting', 'Custom Cabinetry Joinery', 'Tactile Quartz Counters'];
-        } else {
-          items = ['Tectonic Concrete Plinth', 'Champagne Gold Louvers', 'Solar Glazing', 'Natural Travertine Finish'];
         }
-        matList.innerHTML = items.map(m => `<li>${esc(m)}</li>`).join('');
+
+        if (items.length > 0) {
+          matList.innerHTML = items.map(m => `<li>${esc(m)}</li>`).join('');
+          if (matCard) matCard.style.display = 'block';
+        } else {
+          matList.innerHTML = '';
+          if (matCard) matCard.style.display = 'none';
+        }
       }
 
       // 8. Previous & Next Study Pagination (Circular loop through all projects, clean URLs)
