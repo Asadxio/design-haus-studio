@@ -27,98 +27,34 @@ function generateProjectHtml(p, index, all) {
   const nextP = all[(index + 1) % all.length];
 
   const canonicalUrl = `https://designhauss.com/projects/${p.id}`;
-  const locText = p.town || p.location || 'Bankapur, Karnataka';
-  const typeText = p.typology || (p.category ? p.category.charAt(0).toUpperCase() + p.category.slice(1) : 'Architecture');
-  const pageTitle = `${p.title} | DESIGN HAUS`;
-  const metaDesc = `${p.title} — ${typeText} in ${locText} by Er. Nadeem Keli, DESIGN HAUS.`;
-  const coverImgUrl = `https://designhauss.com/${(p.image || 'assets/brand/og-default.jpg').replace(/^\/+/, '')}`;
 
   let categoryBadge = 'Architecture & Exterior';
-  if (p.category === 'sacred') categoryBadge = 'Sacred Architecture';
-  else if (p.category === 'interior') categoryBadge = 'Interior Architecture';
-  else if (p.category === 'commercial') categoryBadge = 'Commercial Architecture';
+  if (p.filterGroup === 'sacred' || p.category === 'sacred') categoryBadge = 'Sacred Architecture';
+  else if (p.filterGroup === 'interior' || p.category === 'interior') categoryBadge = 'Interior Architecture';
+  else if (p.filterGroup === 'commercial' || p.category === 'commercial') categoryBadge = 'Commercial Architecture';
 
-  const typologyBadge = p.typology || 'Architectural Study';
+  const pageTitle = `${p.title} | DESIGN HAUS`;
+  // Point 2: Factual and short meta description: "<Title> | <Category> by Er. Nadeem Keli, DESIGN HAUS."
+  const metaDesc = `${p.title} | ${categoryBadge} by Er. Nadeem Keli, DESIGN HAUS.`;
+  const coverImgUrl = `https://designhauss.com/${(p.image || 'assets/brand/og-default.jpg').replace(/^\/+/, '')}`;
 
-  const leadParts = [];
-  if (p.typology) leadParts.push(p.typology);
-  else if (p.category) leadParts.push(p.category.toUpperCase());
-  if (p.town || p.location) leadParts.push(p.town || p.location);
-  if (p.author) leadParts.push(p.author);
-  const leadSnippet = leadParts.join(' · ');
-
-  const specItems = [];
-  specItems.push({ label: 'Architect & Lead', value: p.author || 'Er. Nadeem Keli' });
-  if (p.town || p.location) {
-    specItems.push({ label: p.town ? 'Location / Town' : 'Location / Context', value: p.town || p.location });
-  }
-  specItems.push({ label: 'Discipline', value: p.typology || categoryBadge });
-  if (p.status) specItems.push({ label: 'Project Phase', value: p.status });
-  if (p.year && p.year !== '2024–2026') {
-    specItems.push({ label: 'Year', value: p.year });
-  }
-  const plotSize = p.plotSize || p.specs?.plotSize;
-  if (plotSize) specItems.push({ label: 'Plot Size', value: plotSize });
-  const builtUp = p.builtUpArea || p.specs?.builtUpArea;
-  if (builtUp) specItems.push({ label: 'Built-up Area', value: builtUp });
-  const scope = p.scope || p.specs?.scope;
-  if (scope) specItems.push({ label: 'Project Scope', value: scope });
-
-  const specsHtml = specItems.map(item => `
-    <div class="project-spec-item">
-      <span>${esc(item.label)}</span>
-      <strong>${esc(item.value)}</strong>
-    </div>`).join('\n');
-
-  let materials = [];
-  if (p.specs?.keyMaterials && Array.isArray(p.specs.keyMaterials) && p.specs.keyMaterials.length > 0) {
-    materials = p.specs.keyMaterials;
-  } else if (p.specs?.palette && Array.isArray(p.specs.palette) && p.specs.palette.length > 0) {
-    materials = p.specs.palette;
-  }
-
-  const materialsCardHtml = materials.length > 0 ? `
-    <div>
-      <div class="project-materials-card" id="materialsCard">
-        <h3 data-i18n="details_materials_title">Key Specifications &amp; Materials</h3>
-        <ul id="materialsList">
-          ${materials.map(m => `<li>${esc(m)}</li>`).join('\n          ')}
-        </ul>
-        <div style="margin-top:30px;">
-          <a href="/contact?project=${encodeURIComponent(p.title)}" class="btn-dark" style="width:100%;text-align:center;justify-content:center;" data-i18n="details_discuss_btn">
-            Discuss A Brief Like This <b>↗</b>
-          </a>
-        </div>
-      </div>
-    </div>` : `
-    <div>
-      <div class="project-materials-card" id="materialsCard">
-        <h3 data-i18n="details_materials_title">Project Consultation</h3>
-        <p style="font-size:15px;color:#504b42;line-height:1.8;margin-bottom:24px;">Direct architectural consultation with Er. Nadeem Keli for sites across Bankapur, Savanur, Haveri and North Karnataka.</p>
-        <div>
-          <a href="/contact?project=${encodeURIComponent(p.title)}" class="btn-dark" style="width:100%;text-align:center;justify-content:center;" data-i18n="details_discuss_btn">
-            Discuss A Brief Like This <b>↗</b>
-          </a>
-        </div>
-      </div>
-    </div>`;
-
+  // Gallery
   const hasMultiGallery = p.images && Array.isArray(p.images) && p.images.length > 1;
   const multiGalleryHtml = hasMultiGallery ? `
-  <section class="project-multi-gallery" id="multiGallerySection" style="margin-bottom:80px;">
-    <div style="margin-bottom:28px;">
-      <p class="kicker">DOCUMENTATION &amp; EXECUTION GALLERY</p>
-      <h2 style="font:400 clamp(32px,3.8vw,52px)/1.1 var(--serif);margin:10px 0 0;">Complete Project Views &amp; On-Site Progress</h2>
+  <section class="project-multi-gallery" id="multiGallerySection" style="margin-top:40px;margin-bottom:60px;">
+    <div style="margin-bottom:20px;">
+      <h2 style="font:400 clamp(24px,2.8vw,36px)/1.2 var(--serif);margin:0;">Project Perspectives &amp; On-Site Views</h2>
     </div>
     <div class="multi-gallery-grid" id="multiGalleryGrid">
       ${p.images.map((imgUrl, i) => `
       <div class="multi-gallery-item" data-img="/${esc(imgUrl.replace(/^\/+/, ''))}" title="Click to view perspective">
-        <img loading="lazy" src="/${esc(imgUrl.replace(/^\/+/, ''))}" alt="${esc(p.title)} - view ${i + 1}">
+        <img loading="lazy" src="/${esc(imgUrl.replace(/^\/+/, ''))}" alt="${esc(p.title)} - view ${i + 1}" width="800" height="600">
         <span class="multi-gallery-badge">View ${i + 1}</span>
       </div>`).join('\n      ')}
     </div>
   </section>` : '';
 
+  // Breadcrumb schema
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -165,31 +101,15 @@ ${JSON.stringify(breadcrumbSchema, null, 2)}
 .project-details-wrap{padding-top:40px;padding-bottom:110px}
 .project-nav-back{display:inline-flex;align-items:center;gap:12px;font-size:12px;font-weight:700;letter-spacing:.14em;color:#9e8357;text-transform:uppercase;margin-bottom:35px;transition:transform .2s;text-decoration:none}
 .project-nav-back:hover{transform:translateX(-5px);color:#171714}
-.project-head-layout{display:grid;grid-template-columns:1.2fr .8fr;gap:8%;align-items:end;margin-bottom:50px}
-.project-head-layout h1{font:400 clamp(44px,5.8vw,82px)/1.02 var(--serif);margin:15px 0 0;letter-spacing:-.045em}
+.project-head-layout{margin-bottom:35px}
+.project-head-layout h1{font:400 clamp(40px,5vw,72px)/1.05 var(--serif);margin:15px 0 0;letter-spacing:-.04em}
 .project-badge-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:15px}
 .project-badge{display:inline-block;padding:6px 14px;border:1px solid rgba(182,154,106,.35);font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#85755b;border-radius:2px}
 .project-badge.gold{background:#b69a6a;color:#171714;border-color:#b69a6a}
-.project-lead-visual{position:relative;width:100%;min-height:540px;max-height:85vh;overflow:hidden;background:#ded8cd;margin-bottom:60px;box-shadow:0 30px 80px rgba(0,0,0,.15)}
+.project-lead-visual{position:relative;width:100%;min-height:480px;max-height:85vh;overflow:hidden;background:#ded8cd;margin-bottom:40px;box-shadow:0 30px 80px rgba(0,0,0,.15)}
 .project-lead-visual img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
 .project-lead-visual:hover img{transform:scale(1.02)}
-.project-specs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:25px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:35px 0;margin-bottom:65px}
-.project-spec-item span{display:block;font-size:10px;letter-spacing:.18em;color:#948671;text-transform:uppercase;margin-bottom:8px}
-.project-spec-item strong{font:500 18px var(--serif);color:#171714}
-.project-content-body{display:grid;grid-template-columns:1.15fr .85fr;gap:10%;margin-bottom:90px}
-.project-narrative h2{font:400 clamp(32px,3.8vw,52px)/1.1 var(--serif);margin:0 0 24px}
-.project-narrative p{font-size:17px;line-height:1.9;color:#504b42;margin-bottom:24px}
-.project-materials-card{background:#e7e1d6;padding:40px;height:fit-content;border-left:3px solid #b69a6a}
-.project-materials-card h3{font:500 24px var(--serif);margin:0 0 18px}
-.project-materials-card ul{list-style:none;padding:0;margin:0;display:grid;gap:12px}
-.project-materials-card li{font-size:15px;color:#504b42;display:flex;align-items:center;gap:12px}
-.project-materials-card li:before{content:'';width:6px;height:6px;background:#b69a6a;border-radius:50%}
-.project-cta-banner{background:linear-gradient(120deg,#181815,#0c0c0b);color:#f2ece2;padding:65px 8%;display:flex;justify-content:space-between;align-items:center;gap:40px;margin-bottom:80px}
-.project-cta-banner h2{font:400 clamp(36px,4.5vw,60px)/1.05 var(--serif);margin:0 0 12px}
-.project-cta-banner p{font-size:16px;color:#baa990;margin:0;max-width:480px;line-height:1.8}
-.related-gallery{padding-top:20px}
-.related-gallery h2{font:400 42px var(--serif);margin:0 0 35px}
-.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
+.project-inquire-bar{display:flex;flex-wrap:wrap;align-items:center;gap:18px;margin-bottom:50px;padding:25px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .multi-gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
 .multi-gallery-item{position:relative;aspect-ratio:4/3;overflow:hidden;background:#d8d2c7;cursor:pointer;border-radius:2px;box-shadow:0 12px 30px rgba(0,0,0,.08);transition:all .3s ease}
 .multi-gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
@@ -204,16 +124,8 @@ ${JSON.stringify(breadcrumbSchema, null, 2)}
 .proj-page-btn:hover b{color:var(--gold)}
 .proj-page-all{font-size:11px;letter-spacing:.18em;font-weight:700;padding:10px 18px;border:1px solid var(--line);color:#777;transition:all .2s;text-decoration:none}
 .proj-page-all:hover{border-color:#171714;color:#171714}
-@media(max-width:900px){
-  .project-head-layout,.project-content-body{grid-template-columns:1fr;gap:35px}
-  .project-specs-grid{grid-template-columns:repeat(2,1fr);gap:25px}
-  .project-cta-banner{flex-direction:column;align-items:flex-start}
-  .related-grid{grid-template-columns:1fr 1fr}
-}
 @media(max-width:650px){
-  .project-lead-visual{min-height:320px}
-  .project-specs-grid{grid-template-columns:1fr;gap:20px}
-  .related-grid{grid-template-columns:1fr}
+  .project-lead-visual{min-height:300px}
   .project-pagination-bar{grid-template-columns:1fr 1fr;gap:15px}
   .proj-page-all{display:none}
 }
@@ -250,51 +162,22 @@ ${JSON.stringify(breadcrumbSchema, null, 2)}
   <a href="/projects" class="project-nav-back" data-i18n="details_back">← Back to Curated Portfolio</a>
 
   <div class="project-head-layout">
-    <div>
-      <div class="project-badge-row">
-        <span class="project-badge gold">${esc(categoryBadge)}</span>
-        <span class="project-badge">${esc(typologyBadge)}</span>
-      </div>
-      <h1>${esc(p.title)}</h1>
+    <div class="project-badge-row">
+      <span class="project-badge gold">${esc(categoryBadge)}</span>
     </div>
-    <div>
-      <p style="font-size:14px;color:#787268;line-height:1.9;">
-        ${esc(leadSnippet)}
-      </p>
-    </div>
+    <h1>${esc(p.title)}</h1>
   </div>
 
   <div class="project-lead-visual">
     <img id="projectMainImg" src="/${esc(p.image.replace(/^\/+/, ''))}" alt="${esc(p.title)} — Architectural design by Er. Nadeem Keli, DESIGN HAUS">
   </div>
 
-  <div class="project-specs-grid">
-    ${specsHtml}
-  </div>
-
-  <div class="project-content-body">
-    <div class="project-narrative">
-      <p class="kicker" data-i18n="details_philosophy_kicker">PROJECT OVERVIEW &amp; SPECIFICATIONS</p>
-      <h2 data-i18n="details_philosophy_title">Architectural design study<br><em>by Er. Nadeem Keli.</em></h2>
-      <p>${esc(p.description || '')}</p>
-    </div>
-    ${materialsCardHtml}
+  <div class="project-inquire-bar">
+    <a href="https://wa.me/919036389529?text=Hello%20Er.%20Nadeem%20Keli%2C%20I%20would%20like%20to%20discuss%20${encodeURIComponent(p.title)}." class="btn-gold" target="_blank" rel="noopener">Inquire on WhatsApp ↗</a>
+    <a href="/contact?project=${encodeURIComponent(p.title)}" class="btn-dark">Consult with Studio ↗</a>
   </div>
 
   ${multiGalleryHtml}
-
-  <div class="project-cta-banner">
-    <div>
-      <p class="kicker light">READY TO SHAPE YOUR ENVIRONMENT?</p>
-      <h2 data-i18n="details_cta_title">Begin with a thoughtful conversation.</h2>
-      <p data-i18n="details_cta_desc">Consult with Er. Nadeem Keli on your residential, commercial or sacred architecture brief across Bankapur, Savanur, Haveri and North Karnataka.</p>
-    </div>
-    <div>
-      <a href="/contact?project=${encodeURIComponent(p.title)}" class="btn-gold" style="white-space:nowrap;" data-i18n="nav_cta">
-        Start Your Project <b>↗</b>
-      </a>
-    </div>
-  </div>
 
   <div class="project-pagination-bar">
     <a class="proj-page-btn" href="/projects/${esc(prevP.id)}" aria-label="Previous project: ${esc(prevP.title)}">
@@ -380,4 +263,4 @@ projects.forEach((p, idx) => {
   count++;
 });
 
-console.log(`Generated ${count} project pages in ${outDir}`);
+console.log(`Regenerated ${count} minimal, factual static project pages in ${outDir}`);

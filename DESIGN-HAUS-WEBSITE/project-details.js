@@ -61,13 +61,12 @@
       const canonicalUrl = `https://designhauss.com/project-details?id=${encodeURIComponent(current.id)}`;
       setCanonical(canonicalUrl);
 
-      const locText = current.town || current.location || 'Bankapur, Karnataka';
-      const typeText = current.typology || (current.category ? current.category.charAt(0).toUpperCase() + current.category.slice(1) : 'Architecture');
-      let metaDesc = `${current.title} — ${typeText} in ${locText} by Er. Nadeem Keli, DESIGN HAUS.`;
-      if (metaDesc.length > 158) {
-        metaDesc = metaDesc.slice(0, 155) + '...';
-      }
+      let categoryBadge = 'Architecture & Exterior';
+      if (current.category === 'sacred') categoryBadge = 'Sacred Architecture';
+      else if (current.category === 'interior') categoryBadge = 'Interior Architecture';
+      else if (current.category === 'commercial') categoryBadge = 'Commercial Architecture';
 
+      const metaDesc = `${current.title} | ${categoryBadge} by Er. Nadeem Keli, DESIGN HAUS.`;
       const pageTitle = `${current.title} | DESIGN HAUS Presentation`;
       document.title = pageTitle;
 
@@ -89,25 +88,18 @@
 
       const badgeCat = document.getElementById('badgeCategory');
       if (badgeCat) {
-        if (current.category === 'sacred') badgeCat.textContent = 'Sacred Architecture';
-        else if (current.category === 'interior') badgeCat.textContent = 'Interior Architecture';
-        else if (current.category === 'commercial') badgeCat.textContent = 'Commercial Architecture';
-        else badgeCat.textContent = 'Architecture & Exterior';
+        badgeCat.textContent = categoryBadge;
       }
 
       const badgeTypology = document.getElementById('badgeTypology');
       if (badgeTypology) {
-        badgeTypology.textContent = current.typology || 'Architectural Study';
+        badgeTypology.style.display = 'none';
       }
 
       const leadSnippet = document.getElementById('projectLeadSnippet');
       if (leadSnippet) {
-        const parts = [];
-        if (current.typology) parts.push(current.typology);
-        else if (current.category) parts.push(current.category.toUpperCase());
-        if (current.town || current.location) parts.push(current.town || current.location);
-        if (current.author) parts.push(current.author);
-        leadSnippet.textContent = parts.join(' · ');
+        leadSnippet.textContent = '';
+        leadSnippet.style.display = 'none';
       }
 
       // 3. Main Visual
@@ -147,113 +139,27 @@
         }
       }
 
-      // 5. Specs Grid (Optional fields: town, plotSize, builtUpArea, year, scope - never show empty/placeholder)
+      // 5. Specs Grid (Location and unverified fields omitted)
       const specsGrid = document.getElementById('specsGrid');
       if (specsGrid) {
-        const specItems = [];
-
-        specItems.push({
-          label: 'Architect & Lead',
-          value: current.author || 'Er. Nadeem Keli'
-        });
-
-        const locationVal = current.town || current.location;
-        if (locationVal) {
-          specItems.push({
-            label: current.town ? 'Location / Town' : 'Location / Context',
-            value: locationVal
-          });
-        }
-
-        let disciplineVal = current.typology;
-        if (!disciplineVal) {
-          if (current.category === 'sacred') disciplineVal = 'Mosque & Community Architecture';
-          else if (current.category === 'interior') disciplineVal = 'Interior Architecture & Renovation';
-          else if (current.category === 'commercial') disciplineVal = 'Commercial Architecture & Engineering';
-          else disciplineVal = 'Architecture, 2D Plans & 3D Elevation';
-        }
-        if (disciplineVal) {
-          specItems.push({
-            label: 'Discipline',
-            value: disciplineVal
-          });
-        }
-
-        if (current.status) {
-          specItems.push({
-            label: 'Project Phase',
-            value: current.status
-          });
-        }
-
-        if (current.year && current.year !== '2024–2026') {
-          specItems.push({
-            label: 'Year',
-            value: current.year
-          });
-        }
-
-        const plotSizeVal = current.plotSize || current.specs?.plotSize;
-        if (plotSizeVal) {
-          specItems.push({
-            label: 'Plot Size',
-            value: plotSizeVal
-          });
-        }
-
-        const builtUpVal = current.builtUpArea || current.specs?.builtUpArea;
-        if (builtUpVal) {
-          specItems.push({
-            label: 'Built-up Area',
-            value: builtUpVal
-          });
-        }
-
-        const scopeVal = current.scope || current.specs?.scope;
-        if (scopeVal) {
-          specItems.push({
-            label: 'Project Scope',
-            value: scopeVal
-          });
-        }
-
-        specsGrid.innerHTML = specItems.map(item => `
-          <div class="project-spec-item">
-            <span>${esc(item.label)}</span>
-            <strong>${esc(item.value)}</strong>
-          </div>
-        `).join('');
+        specsGrid.style.display = 'none';
       }
 
-      // 6. Narrative (Strictly real project description, zero invented paragraphs)
+      // 6. Narrative (Descriptions hidden until verified by Nadeem)
       const descEl = document.getElementById('projectDesc');
       if (descEl) {
-        descEl.textContent = current.description || '';
+        descEl.textContent = '';
+        descEl.style.display = 'none';
+      }
+      const narrativeSec = document.querySelector('.project-narrative');
+      if (narrativeSec) {
+        narrativeSec.style.display = 'none';
       }
 
-      const secEl = document.getElementById('projectDescSecondary');
-      if (secEl) {
-        secEl.remove();
-      }
-
-      // 7. Materials & Specs (Show only if genuine data exists in current.specs)
+      // 7. Materials & Specs (Hidden until verified)
       const matCard = document.getElementById('materialsCard');
-      const matList = document.getElementById('materialsList');
-      if (matList) {
-        let items = [];
-        if (current.specs?.keyMaterials && Array.isArray(current.specs.keyMaterials) && current.specs.keyMaterials.length > 0) {
-          items = current.specs.keyMaterials;
-        } else if (current.specs?.palette && Array.isArray(current.specs.palette) && current.specs.palette.length > 0) {
-          items = current.specs.palette;
-        }
-
-        if (items.length > 0) {
-          matList.innerHTML = items.map(m => `<li>${esc(m)}</li>`).join('');
-          if (matCard) matCard.style.display = 'block';
-        } else {
-          matList.innerHTML = '';
-          if (matCard) matCard.style.display = 'none';
-        }
+      if (matCard) {
+        matCard.style.display = 'none';
       }
 
       // 8. Previous & Next Study Pagination (Circular loop through all projects, clean URLs)
