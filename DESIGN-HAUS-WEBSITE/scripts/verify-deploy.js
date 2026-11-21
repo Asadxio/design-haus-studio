@@ -2,7 +2,7 @@ const https = require('https');
 const fs = require('fs');
 const path = require('path');
 
-const baseUrl = 'https://6b00a8266ff0f19396f37b26--design-haus-studio.netlify.app';
+const baseUrl = 'https://designhauss.com';
 
 function request(urlPath, options = {}, retries = 3) {
   return new Promise((resolve, reject) => {
@@ -331,6 +331,65 @@ async function runTests() {
     };
   } catch (e) {
     results.check11 = { name: 'Netlify.app & Year check', status: 'FAIL', detail: e.message };
+  }
+
+  // --- Extra Check A: Canonical on / and /projects ---
+  try {
+    const homeRes = await request('/');
+    const projRes = await request('/projects');
+    const homeCan = homeRes.body.includes('<link rel="canonical" href="https://designhauss.com/">');
+    const projCan = projRes.body.includes('<link rel="canonical" href="https://designhauss.com/projects">');
+    results.checkA = {
+      name: '(a) Canonical on / and /projects is https://designhauss.com/...',
+      status: (homeCan && projCan) ? 'PASS' : 'FAIL',
+      detail: `Home canonical: ${homeCan}, Projects canonical: ${projCan}`
+    };
+  } catch (e) {
+    results.checkA = { name: '(a) Canonical check', status: 'FAIL', detail: e.message };
+  }
+
+  // --- Extra Check B: netlify.app -> 301 to designhauss.com ---
+  try {
+    const netlifyRes = await request('https://design-haus-studio.netlify.app/', { method: 'HEAD', headOnly: true });
+    const is301 = netlifyRes.statusCode === 301 && netlifyRes.headers.location === 'https://designhauss.com/';
+    results.checkB = {
+      name: '(b) https://design-haus-studio.netlify.app/ 301 redirects to https://designhauss.com/',
+      status: is301 ? 'PASS' : 'FAIL',
+      detail: `Status: ${netlifyRes.statusCode}, Location: ${netlifyRes.headers.location}`
+    };
+  } catch (e) {
+    results.checkB = { name: '(b) Netlify domain 301 check', status: 'FAIL', detail: e.message };
+  }
+
+  // --- Extra Check C: /admin loads with setup/login screen ---
+  try {
+    const adminRes = await request('/admin');
+    const hasSetup = adminRes.body.includes('setupNotice') && adminRes.body.includes('Connect your studio database');
+    const hasNoindex = adminRes.headers['x-robots-tag'] && adminRes.headers['x-robots-tag'].includes('noindex');
+    results.checkC = {
+      name: '(c) /admin loads setup/login screen with noindex headers',
+      status: (adminRes.statusCode === 200 && hasSetup && hasNoindex) ? 'PASS' : 'FAIL',
+      detail: `Status: ${adminRes.statusCode}, hasSetupNotice: ${hasSetup}, X-Robots-Tag: ${adminRes.headers['x-robots-tag']}`
+    };
+  } catch (e) {
+    results.checkC = { name: '(c) Admin screen check', status: 'FAIL', detail: e.message };
+  }
+
+  // --- Extra Check D: Contact form structure and validation ---
+  try {
+    const contactRes = await request('/contact');
+    const hasForm = contactRes.body.includes('id="enquiryForm"');
+    const hasRequired = contactRes.body.includes('name="name" required') &&
+                        contactRes.body.includes('name="phone" required') &&
+                        contactRes.body.includes('name="service" required');
+    const hasWaLink = contactRes.body.includes('wa.me/919036389529');
+    results.checkD = {
+      name: '(d) Contact form loads with proper input validation and WhatsApp action',
+      status: (contactRes.statusCode === 200 && hasForm && hasRequired && hasWaLink) ? 'PASS' : 'FAIL',
+      detail: `Status: ${contactRes.statusCode}, hasForm: ${hasForm}, hasRequiredFields: ${hasRequired}, hasWhatsAppAction: ${hasWaLink}`
+    };
+  } catch (e) {
+    results.checkD = { name: '(d) Contact form validation check', status: 'FAIL', detail: e.message };
   }
 
   console.log('\n================ VERIFICATION RESULTS ================');

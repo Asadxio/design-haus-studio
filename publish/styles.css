@@ -60,7 +60,9 @@ body.lang-kn h1, body.lang-kn h2, body.lang-kn h3, body.lang-kn strong {
 .manifesto h2 em,.expertise h2 em,.gallery-teaser h2 em,.contact-strip h2 em,.story-grid h2 em,.studio-process h2 em,.services-intro h2 em,.contact-form-section h2 em{color:#a78e65}
 .manifesto-copy{padding-top:8px}
 .manifesto-copy p,.story-grid>div:nth-child(2) p{font-size:15px;line-height:2.0;color:#504a3e;margin:0 0 24px}
-.line-link{display:inline-flex;gap:20px;align-items:center;font-size:14px;letter-spacing:.08em;border-bottom:1px solid #a58c63;padding-bottom:10px;text-transform:none}
+.line-link{display:inline-flex;gap:12px;align-items:center;font-size:14px;letter-spacing:.08em;border-bottom:1px solid #a58c63;padding-bottom:10px;text-transform:none}
+.line-link .social-icon{width:16px;height:16px;flex-shrink:0;color:var(--gold);transition:transform .2s}
+.line-link:hover .social-icon{transform:scale(1.15)}
 .line-link b{color:#a58c63}
 .manifesto-bottom{border-top:1px solid var(--line);padding-top:17px;display:flex;justify-content:space-between;color:#716a5e;font-size:12px;letter-spacing:.14em}
 
@@ -228,7 +230,10 @@ body.lang-kn h1, body.lang-kn h2, body.lang-kn h3, body.lang-kn strong {
 .contact-card>div{font-size:14px;line-height:1.8;color:#504a3e;margin:12px 0}
 .contact-card small{display:block;margin-bottom:6px}
 .contact-social-pills{display:grid;gap:9px;width:100%;margin:8px 0}
-.contact-social-pill{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:#ded7cb;color:#181815;font-size:13px;font-weight:600;letter-spacing:.05em;border-radius:2px;border:1px solid #c9bea9;transition:all .25s;text-decoration:none}
+.contact-social-pill{display:flex;align-items:center;padding:10px 14px;background:#ded7cb;color:#181815;font-size:13px;font-weight:600;letter-spacing:.05em;border-radius:2px;border:1px solid #c9bea9;transition:all .25s;text-decoration:none}
+.contact-social-pill .social-icon{width:18px;height:18px;flex-shrink:0;margin-right:10px;color:var(--gold)}
+.contact-social-pill:hover .social-icon{color:#11120f}
+.contact-social-pill span{flex:1}
 .contact-social-pill:hover{background:var(--gold);color:#11120f;border-color:var(--gold)}
 .contact-social-pill b{font-size:14px;color:var(--gold);margin-left:8px}
 .contact-social-pill:hover b{color:#11120f}

@@ -106,6 +106,26 @@ body.lang-kn.royal-home h1, body.lang-kn.royal-home h2, body.lang-kn.royal-home 
 .royal-underlink{font-size:var(--step-sm);font-weight:800;letter-spacing:.1em;border-bottom:1px solid var(--text-light-gold);color:var(--text-light-primary);padding-bottom:10px;display:inline-flex;gap:20px;text-transform:none}
 .royal-underlink b{color:var(--text-light-gold);font-size:var(--step-lg)}
 
+/* Studio Physical Space Showcase (Royal 3D Elegance) */
+.royal-studio-showcase{margin-top:85px;padding-top:65px;border-top:1px solid rgba(184,170,145,0.4)}
+.studio-showcase-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:36px;flex-wrap:wrap;gap:18px}
+.studio-showcase-eyebrow{display:flex;flex-direction:column;gap:6px}
+.studio-showcase-eyebrow span{font-size:var(--step-xs);font-weight:800;letter-spacing:.18em;color:var(--text-light-gold)}
+.studio-showcase-eyebrow h3{font:500 var(--step-2xl)/1.1 var(--royal-serif);color:var(--text-light-primary);margin:0;letter-spacing:-.03em}
+.studio-showcase-eyebrow h3 i{color:var(--text-light-gold);font-style:italic}
+.studio-showcase-note{max-width:460px;font-size:var(--step-sm);line-height:1.75;color:var(--text-light-secondary);margin:0}
+.studio-triptych{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.studio-triptych-item{margin:0;position:relative;background:#fff;border:1px solid rgba(184,170,145,0.45);border-radius:2px;overflow:hidden;box-shadow:0 16px 40px rgba(21,20,17,0.08);transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s,border-color .3s}
+.studio-triptych-item:hover{transform:translateY(-8px);box-shadow:0 26px 60px rgba(21,20,17,0.16);border-color:var(--royal-gold)}
+.studio-img-wrap{position:relative;width:100%;aspect-ratio:3/4;overflow:hidden;background:#ded7cb}
+.studio-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.studio-triptych-item:hover .studio-img-wrap img{transform:scale(1.045)}
+.studio-stamp-badge{position:absolute;z-index:2;top:16px;right:16px;padding:5px 10px;font-size:11px;font-weight:800;letter-spacing:.14em;background:rgba(9,10,9,0.85);color:var(--royal-gold);border:1px solid rgba(197,164,106,0.5);border-radius:2px;backdrop-filter:blur(4px)}
+.studio-triptych-item figcaption{padding:20px 22px 24px;background:#ffffff}
+.studio-triptych-item .studio-badge{display:block;font-size:11px;font-weight:800;letter-spacing:.16em;color:var(--text-light-gold);margin-bottom:6px}
+.studio-triptych-item h4{font:700 var(--step-base)/1.35 var(--royal-sans);color:var(--text-light-primary);margin:0 0 6px;letter-spacing:-.01em}
+.studio-triptych-item p{font-size:var(--step-xs);color:var(--text-light-secondary);line-height:1.55;margin:0}
+
 .royal-feature{display:grid;grid-template-columns:1.15fr .85fr;background-color:#11120f;background:#11120f;min-height:760px}
 .feature-visual{position:relative;min-height:760px;overflow:hidden}
 .feature-visual img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;transition:transform 1.2s}
@@ -148,21 +168,37 @@ body.lang-kn.royal-home h1, body.lang-kn.royal-home h2, body.lang-kn.royal-home 
 .royal-contact .royal-section-index{color:var(--royal-gold)}
 .royal-contact h2{font:500 var(--step-3xl)/.82 var(--royal-serif);letter-spacing:-.05em;margin:40px 0 0;color:var(--text-dark-primary)}
 .royal-contact h2 i{color:var(--royal-gold)}
-.royal-contact-side{display:flex;flex-direction:column;align-items:flex-start;gap:22px}
+.royal-contact-side{display:flex;flex-direction:column;align-items:flex-start;gap:22px;max-width:540px;width:100%}
 .royal-contact-side p{font-size:var(--step-base);letter-spacing:.08em;line-height:1.8;color:var(--text-dark-primary)}
-.royal-whatsapp{font-size:var(--step-sm);letter-spacing:.08em;color:var(--text-dark-primary);background:rgba(37,211,102,0.14);border:1px solid rgba(37,211,102,0.45);padding:10px 16px;border-radius:2px;transition:all .2s;text-transform:none}
-.royal-whatsapp:hover{background:rgba(37,211,102,0.25);color:#fff}
-.royal-social-link{font-size:var(--step-sm);letter-spacing:.08em;color:var(--text-dark-secondary);border-bottom:1px solid var(--royal-gold);padding-bottom:8px;transition:all .2s;display:inline-block;text-transform:none}
-.royal-social-link:hover{color:var(--text-dark-primary);border-bottom-color:#fff}
+
+/* Section 05 Contact Social Hub */
+.royal-social-hub{width:100%;display:flex;flex-direction:column;gap:12px;margin-top:10px}
+.social-hub-title{font-size:var(--step-xs);font-weight:800;letter-spacing:.16em;color:var(--royal-gold)}
+.royal-social-chips{display:grid;grid-template-columns:1fr;gap:10px;width:100%}
+.social-chip{display:flex;align-items:center;gap:14px;padding:12px 18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:3px;color:var(--text-dark-primary);text-decoration:none;transition:all .25s ease}
+.social-chip .social-icon{width:22px;height:22px;flex-shrink:0;color:var(--royal-gold);transition:transform .25s ease}
+.social-chip .chip-text{display:flex;flex-direction:column;gap:2px;flex:1}
+.social-chip .chip-label{font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--text-dark-secondary);text-transform:uppercase}
+.social-chip .chip-value{font-size:var(--step-sm);font-weight:600;color:var(--text-dark-primary);letter-spacing:.02em}
+.social-chip .chip-arrow{font-style:normal;font-size:var(--step-base);color:var(--royal-gold);transition:transform .25s ease}
+.social-chip:hover{background:rgba(197,164,106,0.1);border-color:var(--royal-gold);transform:translateX(4px)}
+.social-chip:hover .social-icon{transform:scale(1.12)}
+.social-chip:hover .chip-arrow{transform:translate(2px,-2px)}
+.social-chip.chip-whatsapp{border-color:rgba(37,211,102,0.35);background:rgba(37,211,102,0.08)}
+.social-chip.chip-whatsapp .social-icon,.social-chip.chip-whatsapp .chip-arrow{color:#25d366}
+.social-chip.chip-whatsapp:hover{border-color:#25d366;background:rgba(37,211,102,0.16)}
 
 .royal-footer{background:#050605;padding:55px 5.2% 22px;color:var(--text-dark-secondary)}
 .rf-top{display:flex;justify-content:space-between;align-items:center;padding-bottom:36px;border-bottom:1px solid #ffffff28}
 .rf-top>p{font-size:var(--step-xs);letter-spacing:.12em;color:var(--text-dark-secondary);text-transform:none}
 .rf-social-bar{display:flex;justify-content:space-between;align-items:center;padding:24px 0;border-bottom:1px solid #ffffff18;flex-wrap:wrap;gap:18px}
 .rf-social-bar span{font-size:var(--step-xs);letter-spacing:.14em;color:var(--royal-gold);font-weight:700}
-.rf-social-links{display:flex;gap:28px;flex-wrap:wrap}
-.rf-social-links a{font-size:var(--step-sm);letter-spacing:.06em;color:var(--text-dark-secondary);transition:color .2s}
-.rf-social-links a:hover{color:var(--royal-gold)}
+.rf-social-links{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.rf-social-btn{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.14);border-radius:3px;color:var(--text-dark-secondary);font-size:var(--step-xs);letter-spacing:.05em;text-decoration:none;transition:all .25s ease}
+.rf-social-btn .social-icon{width:16px;height:16px;flex-shrink:0;color:var(--royal-gold);transition:transform .25s ease}
+.rf-social-btn span i{font-style:normal;color:var(--royal-gold);margin-left:4px}
+.rf-social-btn:hover{background:rgba(197,164,106,0.12);border-color:var(--royal-gold);color:var(--text-dark-primary);transform:translateY(-2px)}
+.rf-social-btn:hover .social-icon{transform:scale(1.15)}
 .rf-bottom{display:flex;justify-content:space-between;padding-top:22px;color:var(--text-dark-secondary);font-size:var(--step-xs);letter-spacing:.1em}
 .rf-bottom a{color:var(--royal-gold)}
 
@@ -229,10 +265,18 @@ body.lang-kn.royal-home h1, body.lang-kn.royal-home h2, body.lang-kn.royal-home 
   .royal-contact{padding:85px 7%;display:block}
   .royal-contact h2{font-size:var(--step-3xl);margin:36px 0}
   .royal-contact-side{gap:18px}
+  .studio-triptych{grid-template-columns:1fr;gap:20px}
+  .studio-img-wrap{aspect-ratio:4/3}
   .rf-top{display:block}
   .rf-top>p{font-size:var(--step-xs);line-height:1.8;margin-top:18px}
+  .rf-social-bar{flex-direction:column;align-items:flex-start;gap:14px}
   .rf-bottom{flex-wrap:wrap;gap:14px;font-size:var(--step-xs)}
   .royal-home .wa-float{width:50px;height:50px;right:16px;bottom:16px}
+}
+
+@media(min-width:650px) and (max-width:950px){
+  .studio-triptych{grid-template-columns:1fr 1fr}
+  .studio-triptych-item.item-main{grid-column:span 2}
 }
 
 @media(max-width:500px){
