@@ -35,6 +35,8 @@ const allowedRootFiles = [
   'i18n.js',
   'index.html',
   'manifest.json',
+  'monolith.css',
+  'monolith.js',
   'netlify.toml',
   'project-details.html',
   'project-details.js',
