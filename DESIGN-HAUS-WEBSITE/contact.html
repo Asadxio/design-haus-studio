@@ -67,17 +67,6 @@
   </script>
 </head>
 <body>
-  <div class="utility">
-    <span data-i18n="topline_independent">INDEPENDENT ARCHITECTURE &amp; DESIGN STUDIO</span>
-    <span data-i18n="topline_location">BANKAPUR · SAVANUR · HAVERI, KARNATAKA</span>
-    <div class="lang-switch-wrap" role="group" aria-label="Language selector">
-      <button class="lang-btn active" data-lang="en">EN</button>
-      <span class="lang-divider">/</span>
-      <button class="lang-btn" data-lang="kn">ಕನ್ನಡ</button>
-    </div>
-    <a href="tel:+919036389529">+91 90363 89529 <b>↗</b></a>
-  </div>
-
   <header class="site-header">
     <a class="wordmark" href="index.html">
       <img src="assets/brand/design-haus-logo.png" alt="DESIGN HAUS logo">
@@ -88,11 +77,10 @@
     </a>
     <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span aria-hidden="true">☰</span><span class="sr-only">Menu</span></button>
     <nav class="main-nav">
-      <a href="studio.html" data-i18n="nav_studio">Studio</a>
-      <a href="services.html" data-i18n="nav_services">Services</a>
-      <a href="projects.html" data-i18n="nav_projects">Projects</a>
-      <a href="contact.html" class="active-nav" data-i18n="nav_contact">Contact</a>
-      <a class="nav-button" href="contact.html" data-i18n="nav_cta">Start a project <i>↗</i></a>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="projects.html">Portfolio</a>
+      <a href="contact.html" class="active-nav">Contact</a>
     </nav>
   </header>
 
@@ -208,10 +196,10 @@
       </div>
       <div>
         <small class="footer-label" data-i18n="footer_explore">EXPLORE</small>
-        <a href="studio.html" data-i18n="nav_studio">The Studio</a>
-        <a href="services.html" data-i18n="nav_services">Services</a>
-        <a href="projects.html" data-i18n="nav_projects">Projects</a>
-        <a href="contact.html" data-i18n="nav_contact">Contact</a>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Portfolio</a>
+        <a href="contact.html">Contact</a>
       </div>
       <div>
         <small class="footer-label" data-i18n="footer_channels">STUDIO PROFILES</small>
@@ -230,6 +218,19 @@
         <a href="contact.html" data-i18n="footer_talk">Let's talk <b>↗</b></a>
       </div>
     </div>
+    <div class="footer-middle">
+      <div class="footer-loc-meta">
+        <span>Bankapur · Savanur · Haveri, Karnataka</span>
+        <span class="pipe">·</span>
+        <span>Independent Architecture &amp; Civil Engineering Practice</span>
+      </div>
+      <div class="lang-switch-wrap" role="group" aria-label="Language selector">
+        <span class="lang-label">Language:</span>
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <span class="lang-divider">/</span>
+        <button class="lang-btn" data-lang="kn">ಕನ್ನಡ</button>
+      </div>
+    </div>
     <div class="footer-bottom">
       <span>© <span id="year"></span> <span data-i18n="footer_rights">DESIGN HAUS. ALL RIGHTS RESERVED.</span></span>
       <span data-i18n="footer_led">LED BY ER. NADEEM KELI · CIVIL ENGINEER &amp; ARCHITECT</span>
@@ -245,6 +246,5 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="config.js"></script>
   <script src="contact.js"></script>
-  <script type="module" src="contact-3d.js"></script>
 </body>
 </html>
