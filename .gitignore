@@ -1,0 +1,13 @@
+# Dependencies & build outputs
+node_modules/
+.netlify/
+publish.zip
+publish-filelist.json
+test-deploy-results.json
+
+# Scratch & temporary testing files
+scratch/
+
+# OS metadata
+.DS_Store
+Thumbs.db
