@@ -913,6 +913,10 @@ body:not(.royal-home) .site-header {
   display: flex !important;
   flex-direction: column !important;
 }
+.portfolio-card[style*="display: none"],
+.portfolio-card.is-hidden {
+  display: none !important;
+}
 .portfolio-card:hover {
   transform: translateY(-6px) !important;
   box-shadow: var(--shadow-md) !important;
