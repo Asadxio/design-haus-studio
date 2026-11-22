@@ -65,7 +65,11 @@
   --mono-accent-dark: #624310;
   --mono-accent-glow: rgba(120, 83, 23, 0.15);
 
-  --mono-radius: 2px;
+  --mono-radius: 16px;
+  --mono-radius-sm: 8px;
+  --mono-radius-md: 14px;
+  --mono-radius-lg: 20px;
+  --mono-radius-image: 16px;
   --mono-radius-pill: 999px;
 
   /* Shadows */
@@ -652,40 +656,68 @@ body:not(.royal-home) .site-header {
 .mono-project-card {
   background: #ffffff;
   border: 1px solid var(--mono-border);
-  border-radius: var(--mono-radius);
+  border-radius: 16px;
   overflow: hidden;
   text-decoration: none;
   color: inherit;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), border-color 0.3s var(--ease-out);
+  box-shadow: 0 4px 20px rgba(15, 16, 13, 0.05);
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out), border-color 0.4s var(--ease-out);
 }
 .mono-project-card:hover {
   transform: translateY(-6px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 16px 36px rgba(15, 16, 13, 0.1);
   border-color: var(--mono-ink);
 }
+.mono-project-card .mono-project-visual,
 .mono-project-card .card-thumb {
   height: 250px;
   background: var(--mono-surface-alt);
   overflow: hidden;
   position: relative;
+  border-radius: 15px 15px 0 0;
 }
+.mono-project-card .mono-project-visual img,
 .mono-project-card .card-thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s var(--ease-out);
+  display: block;
+  border-radius: 15px 15px 0 0;
+  transition: transform 0.7s var(--ease-out);
 }
+.mono-project-card:hover .mono-project-visual img,
 .mono-project-card:hover .card-thumb img {
   transform: scale(1.05);
 }
+.mono-project-card .mono-project-code {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(15, 16, 13, 0.78);
+  color: #faf9f6;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: var(--tracking-wider);
+  padding: 3px 8px;
+  border-radius: 6px;
+  backdrop-filter: blur(8px);
+}
+.mono-project-card .mono-project-body,
 .mono-project-card .card-info {
   padding: var(--space-3);
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
 }
+.mono-project-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.mono-project-category,
 .mono-project-card .card-cat {
   font-size: 10px;
   font-weight: 700;
@@ -693,12 +725,22 @@ body:not(.royal-home) .site-header {
   text-transform: uppercase;
   color: var(--mono-accent);
 }
+.mono-project-title,
 .mono-project-card h4 {
   font-size: 15px;
   font-weight: 700;
   color: var(--mono-ink);
   margin: 0;
   line-height: var(--leading-snug);
+}
+.mono-project-arrow {
+  font-size: 16px;
+  color: var(--mono-ink-muted);
+  transition: transform 0.3s var(--ease-out), color 0.3s var(--ease-out);
+}
+.mono-project-card:hover .mono-project-arrow {
+  transform: translate(3px, -3px);
+  color: var(--mono-ink);
 }
 
 /* Services 3-Col Grid on Home */
@@ -746,55 +788,93 @@ body:not(.royal-home) .site-header {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-4);
+  margin-top: var(--space-6);
 }
+.mono-lab-card,
 .mono-lab-item {
-  background: #ffffff;
-  border: 1px solid var(--mono-border);
-  border-radius: var(--mono-radius);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  display: flex;
-  flex-direction: column;
+  background: #ffffff !important;
+  border: 1px solid var(--mono-border) !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 20px rgba(15, 16, 13, 0.05) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out), border-color 0.4s var(--ease-out) !important;
 }
+.mono-lab-card:hover,
+.mono-lab-item:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 16px 36px rgba(15, 16, 13, 0.1) !important;
+  border-color: var(--mono-ink) !important;
+}
+.mono-lab-img-wrap,
 .mono-lab-item .lab-thumb {
-  height: 380px;
-  overflow: hidden;
-  position: relative;
-  background: var(--mono-surface-alt);
+  height: 380px !important;
+  overflow: hidden !important;
+  position: relative !important;
+  background: var(--mono-surface-alt) !important;
+  border-radius: 15px 15px 0 0 !important;
 }
+.mono-lab-img-wrap img,
 .mono-lab-item .lab-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.7s var(--ease-out);
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  border-radius: 15px 15px 0 0 !important;
+  transition: transform 0.7s var(--ease-out) !important;
 }
+.mono-lab-card:hover .mono-lab-img-wrap img,
 .mono-lab-item:hover .lab-thumb img {
-  transform: scale(1.04);
+  transform: scale(1.05) !important;
 }
-.mono-lab-item .lab-caption {
-  padding: var(--space-3);
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.mono-lab-item .lab-caption span {
+.mono-lab-code {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(15, 16, 13, 0.78);
+  color: #faf9f6;
   font-size: 10px;
+  font-weight: 700;
+  letter-spacing: var(--tracking-wider);
+  padding: 3px 8px;
+  border-radius: 6px;
+  backdrop-filter: blur(8px);
+}
+.mono-lab-tag {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--mono-ink);
+  font-size: 9.5px;
   font-weight: 800;
   letter-spacing: var(--tracking-wider);
-  text-transform: uppercase;
-  color: var(--mono-accent);
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--mono-border);
+  backdrop-filter: blur(6px);
 }
+.mono-lab-body,
+.mono-lab-item .lab-caption {
+  padding: var(--space-3) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+}
+.mono-lab-body h3,
 .mono-lab-item .lab-caption strong {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--mono-ink);
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  color: var(--mono-ink) !important;
+  margin: 0 !important;
 }
+.mono-lab-body p,
 .mono-lab-item .lab-caption p {
-  font-size: 12.5px;
-  color: var(--mono-ink-muted);
-  margin: 0;
-  line-height: var(--leading-snug);
+  font-size: 12.5px !important;
+  color: var(--mono-ink-muted) !important;
+  margin: 0 !important;
+  line-height: var(--leading-snug) !important;
 }
 
 /* ==========================================================================
@@ -906,9 +986,9 @@ body:not(.royal-home) .site-header {
 .portfolio-card {
   background: #ffffff !important;
   border: 1px solid var(--mono-border) !important;
-  border-radius: var(--mono-radius) !important;
+  border-radius: 16px !important;
   overflow: hidden !important;
-  box-shadow: none !important;
+  box-shadow: 0 4px 20px rgba(15, 16, 13, 0.05) !important;
   transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out), border-color 0.4s var(--ease-out) !important;
   display: flex !important;
   flex-direction: column !important;
@@ -919,7 +999,7 @@ body:not(.royal-home) .site-header {
 }
 .portfolio-card:hover {
   transform: translateY(-6px) !important;
-  box-shadow: var(--shadow-md) !important;
+  box-shadow: 0 16px 36px rgba(15, 16, 13, 0.1) !important;
   border-color: var(--mono-ink) !important;
 }
 .portfolio-card .thumb {
@@ -927,6 +1007,7 @@ body:not(.royal-home) .site-header {
   background: var(--mono-surface-alt) !important;
   position: relative !important;
   overflow: hidden !important;
+  border-radius: 15px 15px 0 0 !important;
 }
 .portfolio-card .thumb:after {
   display: none !important;
@@ -935,10 +1016,11 @@ body:not(.royal-home) .site-header {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
-  transition: transform 0.6s var(--ease-out) !important;
+  border-radius: 15px 15px 0 0 !important;
+  transition: transform 0.7s var(--ease-out) !important;
 }
 .portfolio-card:hover img {
-  transform: scale(1.04) !important;
+  transform: scale(1.05) !important;
 }
 .card-content {
   padding: 22px !important;
@@ -1026,23 +1108,37 @@ body:not(.royal-home) .site-header {
 .service-detail {
   background: #ffffff !important;
   border: 1px solid var(--mono-border) !important;
-  border-radius: var(--mono-radius) !important;
+  border-radius: 20px !important;
   display: grid !important;
   grid-template-columns: 1fr 1.2fr !important;
   gap: 40px !important;
   overflow: hidden !important;
   align-items: center !important;
+  box-shadow: 0 4px 24px rgba(15, 16, 13, 0.05) !important;
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out), border-color 0.4s var(--ease-out) !important;
+}
+.service-detail:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 16px 40px rgba(15, 16, 13, 0.09) !important;
+  border-color: var(--mono-ink) !important;
 }
 .service-detail-image {
   height: 100% !important;
   min-height: 340px !important;
   background: var(--mono-surface-alt) !important;
+  overflow: hidden !important;
+  border-radius: 19px 0 0 19px !important;
 }
 .service-detail-image img {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
   display: block !important;
+  border-radius: 19px 0 0 19px !important;
+  transition: transform 0.7s var(--ease-out) !important;
+}
+.service-detail:hover .service-detail-image img {
+  transform: scale(1.04) !important;
 }
 .service-detail-copy {
   padding: 40px 40px 40px 0 !important;
@@ -1562,6 +1658,33 @@ body:not(.royal-home) footer {
   .mono-services-grid,
   .mono-lab-grid {
     grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  .mono-lab-card,
+  .mono-lab-item {
+    border-radius: 16px !important;
+    overflow: hidden !important;
+  }
+  .mono-lab-img-wrap,
+  .mono-lab-item .lab-thumb {
+    height: 290px !important;
+    border-radius: 15px 15px 0 0 !important;
+  }
+  .mono-lab-img-wrap img,
+  .mono-lab-item .lab-thumb img {
+    border-radius: 15px 15px 0 0 !important;
+  }
+  .mono-project-card {
+    border-radius: 16px !important;
+  }
+  .mono-project-visual {
+    height: 220px !important;
+    border-radius: 15px 15px 0 0 !important;
+  }
+  .service-detail-image,
+  .service-detail-image img {
+    border-radius: 19px 19px 0 0 !important;
+    min-height: 240px !important;
   }
   .mono-ft-top,
   .mono-ft-middle,
@@ -1652,5 +1775,65 @@ h3 i, h3 em,
 .contact-card span,
 .contact-card small {
   color: #383631 !important;
+}
+
+/* ==========================================================================
+   SMOOTH FRAMED CASE STUDIES & GALLERIES
+   ========================================================================== */
+.project-lead-visual {
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  border: 1px solid var(--mono-border) !important;
+  box-shadow: 0 12px 36px rgba(15, 16, 13, 0.08) !important;
+  background: var(--mono-surface-alt) !important;
+}
+.project-lead-visual img,
+#projectMainImg {
+  border-radius: 19px !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  transition: transform 1.2s cubic-bezier(.2,.7,.2,1), opacity 0.3s ease !important;
+}
+.project-lead-visual:hover img {
+  transform: scale(1.02) !important;
+}
+
+.multi-gallery-item {
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  border: 1px solid var(--mono-border) !important;
+  box-shadow: 0 4px 16px rgba(15, 16, 13, 0.05) !important;
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), border-color 0.3s var(--ease-out) !important;
+}
+.multi-gallery-item:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 28px rgba(15, 16, 13, 0.1) !important;
+  border-color: var(--mono-ink) !important;
+}
+.multi-gallery-item img {
+  border-radius: 13px !important;
+  transition: transform 0.6s var(--ease-out) !important;
+}
+.multi-gallery-item:hover img {
+  transform: scale(1.05) !important;
+}
+
+.related-grid article,
+.related-card {
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  border: 1px solid var(--mono-border) !important;
+  box-shadow: 0 4px 20px rgba(15, 16, 13, 0.05) !important;
+}
+.related-grid article img,
+.related-card img {
+  border-radius: 15px 15px 0 0 !important;
+}
+
+.image-viewer img {
+  border-radius: 16px !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.6) !important;
 }
 
