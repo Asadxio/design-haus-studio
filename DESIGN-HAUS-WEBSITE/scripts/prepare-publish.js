@@ -22,6 +22,7 @@ fs.mkdirSync(publishDir, { recursive: true });
 
 // 2. Define files and directories to copy
 const allowedRootFiles = [
+  '.nojekyll',
   '404.html',
   'admin.css',
   'admin.html',
