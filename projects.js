@@ -53,10 +53,12 @@
       const cat = card.dataset.category;
       const matches = (activeFilter === 'all' || cat === activeFilter);
       if (matches) {
-        card.style.display = '';
+        card.style.removeProperty('display');
+        card.classList.remove('is-hidden');
         visibleCards.push(card);
       } else {
-        card.style.display = 'none';
+        card.style.setProperty('display', 'none', 'important');
+        card.classList.add('is-hidden');
       }
     });
 
