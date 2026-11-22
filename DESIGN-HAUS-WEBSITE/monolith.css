@@ -58,12 +58,12 @@
   --mono-border-strong: #cfccc2;
 
   --mono-ink: #0f100d;
-  --mono-ink-muted: #54524c;
-  --mono-ink-faint: #7a776e;
+  --mono-ink-muted: #42403a;
+  --mono-ink-faint: #4e4c45;
   
-  --mono-accent: #bfa15f;
-  --mono-accent-dark: #9a7d3c;
-  --mono-accent-glow: rgba(191, 161, 95, 0.15);
+  --mono-accent: #785317;
+  --mono-accent-dark: #624310;
+  --mono-accent-glow: rgba(120, 83, 23, 0.15);
 
   --mono-radius: 2px;
   --mono-radius-pill: 999px;
@@ -997,20 +997,20 @@ body:not(.royal-home) .site-header {
   display: inline-flex !important;
   align-items: center !important;
   padding: 6px 12px !important;
-  background: rgba(37, 211, 102, 0.08) !important;
-  border: 1px solid rgba(37, 211, 102, 0.25) !important;
+  background: #095e52 !important;
+  border: 1px solid #095e52 !important;
   border-radius: var(--mono-radius) !important;
   font-size: 11px !important;
   font-weight: 700 !important;
-  color: #128c7e !important;
+  color: #ffffff !important;
   text-decoration: none !important;
   transition: all 0.2s ease !important;
   min-height: 36px !important;
 }
 .card-wa-btn:hover {
-  background: #25d366 !important;
+  background: #064038 !important;
   color: #ffffff !important;
-  border-color: #25d366 !important;
+  border-color: #064038 !important;
 }
 
 /* ==========================================================================
@@ -1348,7 +1348,7 @@ body:not(.royal-home) footer {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
   font-size: 11.5px !important;
   letter-spacing: var(--tracking-wide) !important;
-  color: #8a8880 !important;
+  color: #d4d1c8 !important;
   flex-wrap: wrap !important;
   gap: 16px !important;
 }
@@ -1380,7 +1380,7 @@ body:not(.royal-home) footer {
   font-size: 10px !important;
   letter-spacing: var(--tracking-wider) !important;
   text-transform: uppercase !important;
-  color: #8a8880 !important;
+  color: #d4d1c8 !important;
   margin: 0 4px 0 6px !important;
   font-weight: 700 !important;
 }
@@ -1390,7 +1390,7 @@ body:not(.royal-home) footer {
   font-size: 11px !important;
   font-weight: 700 !important;
   letter-spacing: 0.08em !important;
-  color: #a3a199 !important;
+  color: #dcd9cf !important;
   cursor: pointer !important;
   padding: 4px 10px !important;
   border-radius: var(--mono-radius-pill) !important;
@@ -1417,7 +1417,7 @@ body:not(.royal-home) footer {
   align-items: center !important;
   padding-top: 24px !important;
   font-size: 12px !important;
-  color: #8a8880 !important;
+  color: #d4d1c8 !important;
   flex-wrap: wrap !important;
   gap: 14px !important;
 }
@@ -1598,3 +1598,51 @@ body:not(.royal-home) footer {
     padding: 7px 14px !important;
   }
 }
+
+/* ==========================================================================
+   WCAG AA COLOR CONTRAST ENHANCEMENTS ( axe-core AA verified )
+   ========================================================================== */
+header .wordmark span small,
+.brand-title small,
+.brand-sub {
+  color: #42403a !important;
+}
+.site-footer .wordmark span small,
+.site-footer .footer-main p {
+  color: #d4d1c8 !important;
+}
+
+.mono-hero-kicker,
+.kicker,
+.mono-sec-eyebrow,
+.portfolio-intro .kicker,
+.intro-heading-group .kicker,
+.contact-strip .kicker,
+.section-meta > span,
+.service-detail-copy > span {
+  color: #785317 !important;
+}
+
+h1 i, h1 em,
+h2 i, h2 em,
+h3 i, h3 em,
+.intro-heading-group h2 em,
+.contact-strip h2 em,
+.faq-header h2 em,
+.map-title h2 em,
+.contact-form-section h2 em {
+  color: #785317 !important;
+}
+
+.mono-stat-lbl,
+.strip-subtext,
+.line-link.subtle,
+.service-meta-links .line-link.subtle,
+#resultCount,
+#formStatus,
+.contact-form-privacy,
+.contact-card span,
+.contact-card small {
+  color: #383631 !important;
+}
+
