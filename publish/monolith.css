@@ -353,31 +353,35 @@ body:not(.royal-home) .site-header {
    HERO SECTION
    ========================================================================== */
 .mono-hero {
-  padding: var(--space-12) 5.4% var(--space-10);
-  background: #ffffff;
-  border-bottom: 1px solid var(--mono-border);
+  padding: clamp(72px, 12vw, 150px) 5.4% clamp(56px, 10vw, 120px) !important;
+  background: #ffffff !important;
+  border-bottom: 1px solid var(--mono-border) !important;
 }
 .mono-hero-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 60px;
-  align-items: center;
+  display: block !important;
+  max-width: 980px !important;
+  margin: 0 auto !important;
+}
+.mono-hero-copy {
+  max-width: 100% !important;
 }
 .mono-hero-kicker {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: var(--tracking-widest);
-  text-transform: uppercase;
-  color: var(--mono-accent);
-  margin-bottom: var(--space-3);
+  white-space: nowrap !important;
+  font-size: clamp(7.5px, 2.1vw, 11px) !important;
+  font-weight: 700 !important;
+  letter-spacing: clamp(0.02em, 0.6vw, 0.12em) !important;
+  text-transform: uppercase !important;
+  color: var(--mono-accent) !important;
+  margin-bottom: var(--space-4) !important;
+  display: block !important;
 }
 .mono-hero h1 {
-  font-size: var(--text-5xl);
-  font-weight: 800;
-  line-height: var(--leading-tight);
-  letter-spacing: var(--tracking-tight);
-  color: var(--mono-ink);
-  margin: 0 0 var(--space-3) 0;
+  font-size: clamp(48px, 8vw, 104px) !important;
+  font-weight: 800 !important;
+  line-height: 1.02 !important;
+  letter-spacing: -0.035em !important;
+  color: var(--mono-ink) !important;
+  margin: 0 0 var(--space-6) 0 !important;
 }
 .mono-hero h1 i,
 .mono-hero h1 em {
@@ -386,29 +390,22 @@ body:not(.royal-home) .site-header {
   font-weight: 400;
   color: var(--mono-accent);
 }
-.mono-hero-desc {
-  font-size: var(--text-lg);
-  line-height: var(--leading-relaxed);
-  color: var(--mono-ink-muted);
-  max-width: var(--measure);
-  margin: 0 0 var(--space-5) 0;
-}
 .mono-hero-actions {
-  display: flex;
-  gap: var(--space-2);
-  align-items: center;
-  flex-wrap: wrap;
-  margin-bottom: var(--space-6);
+  display: flex !important;
+  gap: var(--space-3) !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  margin-bottom: var(--space-8) !important;
 }
 
 /* Hero Key Indicators Bar */
 .mono-hero-stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-3);
-  border-top: 1px solid var(--mono-border);
-  padding-top: var(--space-4);
-  max-width: var(--measure);
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: var(--space-4) !important;
+  border-top: 1px solid var(--mono-border) !important;
+  padding-top: var(--space-5) !important;
+  max-width: 100% !important;
 }
 .mono-stat-item {
   display: flex;
@@ -1545,6 +1542,11 @@ body:not(.royal-home) footer {
   .mono-hero {
     padding: 60px 5% 50px !important;
   }
+  .mono-hero-kicker {
+    white-space: nowrap !important;
+    font-size: 8.5px !important;
+    letter-spacing: 0.03em !important;
+  }
   .mono-hero h1 {
     font-size: 38px !important;
   }
@@ -1572,11 +1574,13 @@ body:not(.royal-home) footer {
 }
 
 @media (max-width: 390px) {
-  .mono-hero h1 {
-    font-size: 32px !important;
+  .mono-hero-kicker {
+    white-space: nowrap !important;
+    font-size: 7.0px !important;
+    letter-spacing: 0.015em !important;
   }
-  .mono-hero-desc {
-    font-size: 15px !important;
+  .mono-hero h1 {
+    font-size: 38px !important;
   }
   .mono-hero-stats {
     grid-template-columns: 1fr 1fr !important;
