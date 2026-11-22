@@ -34,7 +34,6 @@ function generateProjectHtml(p, index, all) {
   else if (p.filterGroup === 'commercial' || p.category === 'commercial') categoryBadge = 'Commercial Architecture';
 
   const pageTitle = `${p.title} | DESIGN HAUS`;
-  // Point 2: Factual and short meta description: "<Title> | <Category> by Er. Nadeem Keli, DESIGN HAUS."
   const metaDesc = `${p.title} | ${categoryBadge} by Er. Nadeem Keli, DESIGN HAUS.`;
   const coverImgUrl = `https://designhauss.com/${(p.image || 'assets/brand/og-default.jpg').replace(/^\/+/, '')}`;
 
@@ -47,8 +46,8 @@ function generateProjectHtml(p, index, all) {
     </div>
     <div class="multi-gallery-grid" id="multiGalleryGrid">
       ${p.images.map((imgUrl, i) => `
-      <div class="multi-gallery-item" data-img="/${esc(imgUrl.replace(/^\/+/, ''))}" title="Click to view perspective">
-        <img loading="lazy" src="/${esc(imgUrl.replace(/^\/+/, ''))}" alt="${esc(p.title)} - view ${i + 1}" width="800" height="600">
+      <div class="multi-gallery-item" data-img="../${esc(imgUrl.replace(/^\/+/, ''))}" title="Click to view perspective">
+        <img loading="lazy" src="../${esc(imgUrl.replace(/^\/+/, ''))}" alt="${esc(p.title)} - view ${i + 1}" width="800" height="600">
         <span class="multi-gallery-badge">View ${i + 1}</span>
       </div>`).join('\n      ')}
     </div>
@@ -89,11 +88,12 @@ function generateProjectHtml(p, index, all) {
 <meta name="twitter:description" content="${esc(metaDesc)}">
 <meta name="twitter:image" content="${coverImgUrl}">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<link rel="icon" href="/assets/brand/design-haus-logo.png">
+<link rel="icon" href="../assets/brand/design-haus-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Kannada:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../monolith.css">
 <script type="application/ld+json">
 ${JSON.stringify(breadcrumbSchema, null, 2)}
 </script>
@@ -132,34 +132,22 @@ ${JSON.stringify(breadcrumbSchema, null, 2)}
 </style>
 </head>
 <body>
-<div class="utility">
-  <span data-i18n="topline_independent">INDEPENDENT ARCHITECTURE &amp; DESIGN STUDIO</span>
-  <span data-i18n="topline_location">BANKAPUR · SAVANUR · HAVERI, KARNATAKA</span>
-  <div class="lang-switch-wrap" role="group" aria-label="Language selector">
-    <button class="lang-btn active" data-lang="en">EN</button>
-    <span class="lang-divider">/</span>
-    <button class="lang-btn" data-lang="kn">ಕನ್ನಡ</button>
-  </div>
-  <a href="tel:+919036389529">+91 90363 89529 <b>↗</b></a>
-</div>
-
 <header class="site-header">
-  <a class="wordmark" href="/">
-    <img src="/assets/brand/design-haus-logo.png" alt="DESIGN HAUS logo">
+  <a class="wordmark" href="../index.html">
+    <img src="../assets/brand/design-haus-logo.png" alt="DESIGN HAUS logo">
     <span><strong>DESIGN HAUS</strong><small data-i18n="brand_tagline">DESIGNING SPACE, DEFINING STYLE</small></span>
   </a>
   <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span aria-hidden="true">☰</span><span class="sr-only">Menu</span></button>
   <nav class="main-nav">
-    <a href="/studio" data-i18n="nav_studio">Studio</a>
-    <a href="/services" data-i18n="nav_services">Services</a>
-    <a href="/projects" data-i18n="nav_projects">Projects</a>
-    <a href="/contact" data-i18n="nav_contact">Contact</a>
-    <a class="nav-button" href="/contact" data-i18n="nav_cta">Start a project <i>↗</i></a>
+    <a href="../index.html">Home</a>
+    <a href="../services.html">Services</a>
+    <a href="../projects.html" class="active-nav">Portfolio</a>
+    <a href="../contact.html">Contact</a>
   </nav>
 </header>
 
 <main class="project-details-wrap section-shell">
-  <a href="/projects" class="project-nav-back" data-i18n="details_back">← Back to Curated Portfolio</a>
+  <a href="../projects.html" class="project-nav-back" data-i18n="details_back">← Back to Curated Portfolio</a>
 
   <div class="project-head-layout">
     <div class="project-badge-row">
@@ -169,23 +157,23 @@ ${JSON.stringify(breadcrumbSchema, null, 2)}
   </div>
 
   <div class="project-lead-visual">
-    <img id="projectMainImg" src="/${esc(p.image.replace(/^\/+/, ''))}" alt="${esc(p.title)} — Architectural design by Er. Nadeem Keli, DESIGN HAUS">
+    <img id="projectMainImg" src="../${esc(p.image.replace(/^\/+/, ''))}" alt="${esc(p.title)} — Architectural design by Er. Nadeem Keli, DESIGN HAUS">
   </div>
 
   <div class="project-inquire-bar">
     <a href="https://wa.me/919036389529?text=Hello%20Er.%20Nadeem%20Keli%2C%20I%20would%20like%20to%20discuss%20${encodeURIComponent(p.title)}." class="btn-gold" target="_blank" rel="noopener">Inquire on WhatsApp ↗</a>
-    <a href="/contact?project=${encodeURIComponent(p.title)}" class="btn-dark">Consult with Studio ↗</a>
+    <a href="../contact.html?project=${encodeURIComponent(p.title)}" class="btn-dark">Consult with Studio ↗</a>
   </div>
 
   ${multiGalleryHtml}
 
   <div class="project-pagination-bar">
-    <a class="proj-page-btn" href="/projects/${esc(prevP.id)}" aria-label="Previous project: ${esc(prevP.title)}">
+    <a class="proj-page-btn" href="${esc(prevP.id)}.html" aria-label="Previous project: ${esc(prevP.title)}">
       <small data-i18n="details_prev">← PREVIOUS STUDY</small>
       <b>${esc(prevP.title)}</b>
     </a>
-    <a href="/projects" class="proj-page-all" data-i18n="details_all_btn">ALL 90 PROJECTS</a>
-    <a class="proj-page-btn next" href="/projects/${esc(nextP.id)}" aria-label="Next project: ${esc(nextP.title)}">
+    <a href="../projects.html" class="proj-page-all" data-i18n="details_all_btn">ALL 90 PROJECTS</a>
+    <a class="proj-page-btn next" href="${esc(nextP.id)}.html" aria-label="Next project: ${esc(nextP.title)}">
       <small data-i18n="details_next">NEXT STUDY →</small>
       <b>${esc(nextP.title)}</b>
     </a>
@@ -195,18 +183,18 @@ ${JSON.stringify(breadcrumbSchema, null, 2)}
 <footer class="site-footer">
   <div class="footer-main">
     <div>
-      <a class="wordmark footer-mark" href="/">
-        <img src="/assets/brand/design-haus-logo.png" alt="DESIGN HAUS logo">
+      <a class="wordmark footer-mark" href="../index.html">
+        <img src="../assets/brand/design-haus-logo.png" alt="DESIGN HAUS logo">
         <span><strong>DESIGN HAUS</strong><small data-i18n="brand_tagline">DESIGNING SPACE, DEFINING STYLE</small></span>
       </a>
-      <p>Thoughtful spaces. Considered details.<br>Built around the way you live.</p>
+      <p>Architecture · Construction · Interiors · Real Estate.<br>Led by Er. Nadeem Keli (7 Years Experience).<br>Mundgod Cross, Bankapur, Karnataka, India.</p>
     </div>
     <div>
       <small class="footer-label" data-i18n="footer_explore">EXPLORE</small>
-      <a href="/studio" data-i18n="nav_studio">The Studio</a>
-      <a href="/services" data-i18n="nav_services">Services</a>
-      <a href="/projects" data-i18n="nav_projects">Projects</a>
-      <a href="/contact" data-i18n="nav_contact">Contact</a>
+      <a href="../index.html">Home</a>
+      <a href="../services.html">Services</a>
+      <a href="../projects.html">Portfolio</a>
+      <a href="../contact.html">Contact</a>
     </div>
     <div>
       <small class="footer-label" data-i18n="footer_channels">STUDIO PROFILES</small>
@@ -222,7 +210,20 @@ ${JSON.stringify(breadcrumbSchema, null, 2)}
     </div>
     <div class="footer-cta">
       <span data-i18n="footer_mind">HAVE A PROJECT IN MIND?</span>
-      <a href="/contact" data-i18n="footer_talk">Let's talk <b>↗</b></a>
+      <a href="../contact.html" data-i18n="footer_talk">Let's talk <b>↗</b></a>
+    </div>
+  </div>
+  <div class="footer-middle">
+    <div class="footer-loc-meta">
+      <span>Bankapur · Savanur · Haveri, Karnataka</span>
+      <span class="pipe">·</span>
+      <span>Independent Architecture &amp; Civil Engineering Practice</span>
+    </div>
+    <div class="lang-switch-wrap" role="group" aria-label="Language selector">
+      <span class="lang-label">Language:</span>
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <span class="lang-divider">/</span>
+      <button class="lang-btn" data-lang="kn">ಕನ್ನಡ</button>
     </div>
   </div>
   <div class="footer-bottom">
@@ -249,8 +250,8 @@ document.querySelectorAll('.multi-gallery-item').forEach(item => {
   });
 });
 </script>
-<script src="/i18n.js"></script>
-<script src="/site.js"></script>
+<script src="../i18n.js"></script>
+<script src="../site.js"></script>
 </body>
 </html>`;
 }
@@ -263,4 +264,4 @@ projects.forEach((p, idx) => {
   count++;
 });
 
-console.log(`Regenerated ${count} minimal, factual static project pages in ${outDir}`);
+console.log(`Regenerated ${count} minimal, factual static project pages with relative paths in ${outDir}`);
