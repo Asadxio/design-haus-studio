@@ -87,6 +87,15 @@
 }
 
 /* Base Resets & Typography */
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -351,6 +360,125 @@ body:not(.royal-home) .site-header {
   color: #ffffff !important;
   border-color: var(--mono-ink) !important;
   transform: translateY(-2px) !important;
+}
+
+/* ==========================================================================
+   FIRST SCREEN / FIRST LOOK (CLIENT ARCHITECTURAL COVER HERO)
+   ========================================================================== */
+.mono-first-look {
+  padding: var(--space-4) 5.4% var(--space-4);
+  background: #ffffff;
+}
+
+.mono-cover-frame {
+  position: relative;
+  width: 100%;
+  height: calc(88vh - 74px);
+  min-height: 520px;
+  max-height: 840px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--mono-border);
+  box-shadow: 0 12px 36px rgba(15, 16, 13, 0.08);
+  background: var(--mono-surface-alt);
+}
+
+.mono-cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  display: block;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mono-cover-frame:hover .mono-cover-img {
+  transform: scale(1.02);
+}
+
+.mono-cover-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 16, 13, 0.06) 0%,
+    rgba(15, 16, 13, 0.1) 45%,
+    rgba(15, 16, 13, 0.76) 100%
+  );
+  pointer-events: none;
+}
+
+.mono-cover-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-5) var(--space-6);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+  z-index: 2;
+}
+
+.mono-cover-brand-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mono-cover-kicker {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: #dfd8cc;
+}
+
+.mono-cover-title {
+  font-family: var(--mono-font);
+  font-size: clamp(28px, 4vw, 50px);
+  font-weight: 800;
+  letter-spacing: var(--tracking-wider);
+  color: #ffffff;
+  margin: 0;
+  line-height: 1;
+}
+
+.mono-cover-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mono-cover-scroll-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: #ffffff;
+  color: var(--mono-ink);
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: var(--tracking-wide);
+  border-radius: var(--mono-radius-pill);
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s var(--ease-out), background 0.2s ease, color 0.2s ease;
+}
+
+.mono-cover-scroll-btn:hover {
+  transform: translateY(-2px);
+  background: var(--mono-ink);
+  color: #ffffff;
+}
+
+.cover-arrow {
+  transition: transform 0.3s var(--ease-out);
+}
+
+.mono-cover-scroll-btn:hover .cover-arrow {
+  transform: translateY(3px);
 }
 
 /* ==========================================================================
@@ -1634,6 +1762,31 @@ body:not(.royal-home) footer {
     width: 100% !important;
     border-bottom: 1px solid var(--mono-border-subtle) !important;
     padding: 16px 0 !important;
+  }
+
+  .mono-first-look {
+    padding: var(--space-2) 5% var(--space-2) !important;
+  }
+  .mono-cover-frame {
+    height: calc(85svh - 72px) !important;
+    min-height: 440px !important;
+    border-radius: 16px !important;
+  }
+  .mono-cover-bar {
+    padding: var(--space-4) !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 14px !important;
+  }
+  .mono-cover-title {
+    font-size: 26px !important;
+  }
+  .mono-cover-kicker {
+    font-size: 9.5px !important;
+  }
+  .mono-cover-scroll-btn {
+    padding: 9px 18px !important;
+    font-size: 11px !important;
   }
 
   .mono-section {
