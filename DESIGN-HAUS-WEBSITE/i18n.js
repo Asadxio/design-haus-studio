@@ -14,7 +14,7 @@
       // Home Page
       hero_eyebrow: "Architecture · Construction · Interiors · Real Estate",
       hero_tagline: "Designing Space,<br><i>Defining Style.</i>",
-      hero_explore_btn: "Explore Projects ↗",
+      hero_explore_btn: "Explore Portfolio ↗",
       hero_discuss_btn: "Discuss Your Project ↗",
       hero_credentials: "Er. Nadeem Keli · 7 Years of Experience",
       hero_scroll: "Scroll to discover ↓",
