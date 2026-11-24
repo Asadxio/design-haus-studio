@@ -1,6 +1,6 @@
 (() => {
   // Mobile navigation toggle for Monolith theme (supports header toggle and first-screen toggle)
-  const toggleBtns = document.querySelectorAll('.mono-menu-toggle, .fs-hit-menu');
+  const toggleBtns = document.querySelectorAll('.mono-menu-toggle, .fs-menu-btn');
   const nav = document.querySelector('.mono-nav');
   const headerEl = document.querySelector('.mono-header');
 
@@ -38,8 +38,8 @@
     });
   }
 
-  // Smooth scroll for hero scroll cues (including first-screen cover trigger)
-  const scrollCues = document.querySelectorAll('.mono-scroll-cue, .fs-hit-scroll');
+  // Smooth scroll for hero scroll cues (including first-screen triggers)
+  const scrollCues = document.querySelectorAll('.mono-scroll-cue, .fs-card-peek, .fs-desk-explore');
   scrollCues.forEach(cue => {
     cue.addEventListener('click', (e) => {
       const targetId = cue.getAttribute('href');
