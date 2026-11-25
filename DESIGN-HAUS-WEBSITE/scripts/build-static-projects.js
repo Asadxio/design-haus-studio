@@ -93,7 +93,7 @@ function generateProjectHtml(p, index, all) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Kannada:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles.css">
-<link rel="stylesheet" href="../monolith.css">
+<link rel="stylesheet" href="../monolith.css?v=20261126-3">
 <script type="application/ld+json">
 ${JSON.stringify(breadcrumbSchema, null, 2)}
 </script>
@@ -180,55 +180,49 @@ ${JSON.stringify(breadcrumbSchema, null, 2)}
   </div>
 </main>
 
-<footer class="site-footer">
-  <div class="footer-main">
-    <div>
-      <a class="wordmark footer-mark" href="../index.html">
-        <img src="../assets/brand/design-haus-logo.png" alt="DESIGN HAUS logo">
-        <span><strong>DESIGN HAUS</strong><small data-i18n="brand_tagline">DESIGNING SPACE, DEFINING STYLE</small></span>
-      </a>
-      <p>Architecture · Construction · Interiors · Real Estate.<br>Led by Er. Nadeem Keli (7 Years Experience).<br>Mundgod Cross, Bankapur, Karnataka, India.</p>
+<footer class="site-footer rm-footer">
+  <div class="rm-ft-grid">
+    <div class="rm-ft-left">
+      <div class="rm-ft-socials" aria-label="Official DESIGN HAUS Channels">
+        <a href="https://wa.me/919036389529?text=Hello%20DESIGN%20HAUS%2C%20I%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener" aria-label="WhatsApp" title="Chat on WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.79 14.07c-.24.67-1.39 1.3-1.92 1.38-.49.07-1.12.1-3.23-.77-2.69-1.11-4.41-3.83-4.54-4.01-.13-.18-1.09-1.45-1.09-2.76s.69-1.96.94-2.22c.24-.26.53-.33.71-.33.18 0 .36 0 .52.01.17.01.39-.06.61.46.23.53.79 1.93.86 2.07.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.16-.3.35-.43.47-.14.13-.29.28-.13.55.17.28.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.41.28.14.45.12.62-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.64-.15.26.1 1.65.78 1.93.92.28.14.47.21.54.33.07.12.07.7-.17 1.37z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/design_haus__" target="_blank" rel="noopener" aria-label="Studio Instagram" title="DESIGN HAUS Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://share.google/r7AWYi6I2VgOyxBWh" target="_blank" rel="noopener" aria-label="Google Business Profile" title="Google Reviews & Directions">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.35 11.1h-9.17v2.73h5.51c-.33 1.83-1.88 3.09-3.81 3.09-2.3 0-4.17-1.87-4.17-4.17s1.87-4.17 4.17-4.17c1.04 0 1.99.38 2.73 1.01l2.05-2.05C17.26 6.22 15.11 5.35 12.18 5.35 8.01 5.35 4.63 8.73 4.63 12.9s3.38 7.55 7.55 7.55c4.36 0 7.27-3.07 7.27-7.4 0-.66-.07-1.3-.2-1.95h.1z"/></svg>
+        </a>
+        <a href="tel:+919036389529" aria-label="Call DESIGN HAUS" title="Call +91 90363 89529">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z"/></svg>
+        </a>
+      </div>
+      <div class="rm-ft-meta-row">
+        <a href="../studio.html" class="rm-ft-about" data-i18n="nav_about_plain">About Us</a>
+        <span class="rm-ft-sep" aria-hidden="true">·</span>
+        <div class="lang-switch-wrap rm-lang-switch" role="group" aria-label="Language selector">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <span class="lang-divider">/</span>
+          <button class="lang-btn" data-lang="kn">ಕನ್ನಡ</button>
+        </div>
+      </div>
+      <p class="rm-ft-copy">© <span id="year">2026</span> <span data-i18n="footer_rights">DESIGN HAUS. All rights reserved.</span></p>
     </div>
-    <div>
-      <small class="footer-label" data-i18n="footer_explore">EXPLORE</small>
-      <a href="../index.html">Home</a>
-      <a href="../services.html">Services</a>
-      <a href="../projects.html">Portfolio</a>
-      <a href="../contact.html">Contact</a>
-    </div>
-    <div>
-      <small class="footer-label" data-i18n="footer_channels">STUDIO PROFILES</small>
-      <a href="https://www.instagram.com/design_haus__" target="_blank" rel="noopener">Studio Instagram (@design_haus__) ↗</a>
-      <a href="https://www.instagram.com/er.nadeem_keli" target="_blank" rel="noopener">Er. Nadeem Keli (@er.nadeem_keli) ↗</a>
-      <a href="https://share.google/r7AWYi6I2VgOyxBWh" target="_blank" rel="noopener">Google Business &amp; Reviews ↗</a>
-    </div>
-    <div>
-      <small class="footer-label" data-i18n="footer_touch">GET IN TOUCH</small>
+
+    <div class="rm-ft-lab">
+      <strong class="rm-ft-lab-title">OUR LAB</strong>
       <a href="tel:+919036389529">+91 90363 89529</a>
       <a href="mailto:nadeemkeli3938@gmail.com">nadeemkeli3938@gmail.com</a>
-      <span data-i18n="studio_address_val">Mundgod Cross, Bankapur<br>Karnataka, India</span>
+      <p class="rm-ft-address" data-i18n="footer_address_val">DESIGN HAUS Studio, Mundgod Cross,<br>Bankapur, Karnataka 581202</p>
     </div>
-    <div class="footer-cta">
-      <span data-i18n="footer_mind">HAVE A PROJECT IN MIND?</span>
-      <a href="../contact.html" data-i18n="footer_talk">Let's talk <b>↗</b></a>
+
+    <div class="rm-ft-form-wrap">
+      <form class="rm-ft-form" onsubmit="return window.dhFooterInquiry ? window.dhFooterInquiry(event, this) : false;">
+        <label for="footerInquiryInput" data-i18n="footer_inquire_lbl">Inquire about our design services</label>
+        <input id="footerInquiryInput" type="text" placeholder="Enter your email address here" data-i18n-placeholder="footer_inquire_ph" autocomplete="email">
+        <button type="submit" data-i18n="footer_inquire_btn">Submit</button>
+      </form>
     </div>
-  </div>
-  <div class="footer-middle">
-    <div class="footer-loc-meta">
-      <span>Bankapur · Savanur · Haveri, Karnataka</span>
-      <span class="pipe">·</span>
-      <span>Independent Architecture &amp; Civil Engineering Practice</span>
-    </div>
-    <div class="lang-switch-wrap" role="group" aria-label="Language selector">
-      <span class="lang-label">Language:</span>
-      <button class="lang-btn active" data-lang="en">EN</button>
-      <span class="lang-divider">/</span>
-      <button class="lang-btn" data-lang="kn">ಕನ್ನಡ</button>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2026 <span data-i18n="footer_rights">DESIGN HAUS. ALL RIGHTS RESERVED.</span></span>
-    <span data-i18n="footer_led">LED BY ER. NADEEM KELI · CIVIL ENGINEER &amp; ARCHITECT</span>
   </div>
 </footer>
 
@@ -250,8 +244,8 @@ document.querySelectorAll('.multi-gallery-item').forEach(item => {
   });
 });
 </script>
-<script src="../i18n.js"></script>
-<script src="../site.js"></script>
+<script src="../i18n.js?v=20261126-3"></script>
+<script src="../site.js?v=20261126-3"></script>
 </body>
 </html>`;
 }
