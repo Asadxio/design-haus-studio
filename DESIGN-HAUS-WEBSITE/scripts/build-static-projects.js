@@ -93,7 +93,7 @@ function generateProjectHtml(p, index, all) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Kannada:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles.css">
-<link rel="stylesheet" href="../monolith.css?v=20261126-3">
+<link rel="stylesheet" href="../monolith.css?v=20261126-4">
 <script type="application/ld+json">
 ${JSON.stringify(breadcrumbSchema, null, 2)}
 </script>
@@ -160,11 +160,6 @@ ${JSON.stringify(breadcrumbSchema, null, 2)}
     <img id="projectMainImg" src="../${esc(p.image.replace(/^\/+/, ''))}" alt="${esc(p.title)} — Architectural design by Er. Nadeem Keli, DESIGN HAUS">
   </div>
 
-  <div class="project-inquire-bar">
-    <a href="https://wa.me/919036389529?text=Hello%20Er.%20Nadeem%20Keli%2C%20I%20would%20like%20to%20discuss%20${encodeURIComponent(p.title)}." class="btn-gold" target="_blank" rel="noopener">Inquire on WhatsApp ↗</a>
-    <a href="../contact.html?project=${encodeURIComponent(p.title)}" class="btn-dark">Consult with Studio ↗</a>
-  </div>
-
   ${multiGalleryHtml}
 
   <div class="project-pagination-bar">
@@ -172,7 +167,7 @@ ${JSON.stringify(breadcrumbSchema, null, 2)}
       <small data-i18n="details_prev">← PREVIOUS STUDY</small>
       <b>${esc(prevP.title)}</b>
     </a>
-    <a href="../projects.html" class="proj-page-all" data-i18n="details_all_btn">ALL 90 PROJECTS</a>
+    <a href="../projects.html" class="proj-page-all" data-i18n="details_all_btn">ALL ${all.length} PROJECTS</a>
     <a class="proj-page-btn next" href="${esc(nextP.id)}.html" aria-label="Next project: ${esc(nextP.title)}">
       <small data-i18n="details_next">NEXT STUDY →</small>
       <b>${esc(nextP.title)}</b>
@@ -244,8 +239,8 @@ document.querySelectorAll('.multi-gallery-item').forEach(item => {
   });
 });
 </script>
-<script src="../i18n.js?v=20261126-3"></script>
-<script src="../site.js?v=20261126-3"></script>
+<script src="../i18n.js?v=20261126-4"></script>
+<script src="../site.js?v=20261126-4"></script>
 </body>
 </html>`;
 }

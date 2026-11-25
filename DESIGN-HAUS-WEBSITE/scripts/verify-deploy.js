@@ -88,10 +88,12 @@ async function runTests() {
     results.check2 = { name: 'Project details 301', status: 'FAIL', detail: e.message };
   }
 
-  // --- Check 3: All 90 /projects/<id> URLs -> 200 ---
+  // --- Check 3: All /projects/<id> URLs -> 200 ---
+  let totalProjects = 50;
   try {
     const projectsJsonPath = path.resolve(__dirname, '../assets/projects.json');
     const projectsData = JSON.parse(fs.readFileSync(projectsJsonPath, 'utf8'));
+    totalProjects = projectsData.length;
     let passCount = 0;
     let failList = [];
 
@@ -113,15 +115,15 @@ async function runTests() {
     }
 
     results.check3 = {
-      name: 'All 90 /projects/<id> URLs return 200',
-      status: (passCount === 90 && failList.length === 0) ? 'PASS' : 'FAIL',
-      detail: `${passCount}/90 returned 200 OK${failList.length ? ` (Fails: ${JSON.stringify(failList)})` : ''}`
+      name: `All ${totalProjects} /projects/<id> URLs return 200`,
+      status: (passCount === totalProjects && failList.length === 0) ? 'PASS' : 'FAIL',
+      detail: `${passCount}/${totalProjects} returned 200 OK${failList.length ? ` (Fails: ${JSON.stringify(failList)})` : ''}`
     };
   } catch (e) {
-    results.check3 = { name: 'All 90 projects', status: 'FAIL', detail: e.message };
+    results.check3 = { name: `All ${totalProjects} projects`, status: 'FAIL', detail: e.message };
   }
 
-  // --- Check 4: Sitemap all 95 URLs -> 200 ---
+  // --- Check 4: Sitemap all URLs -> 200 ---
   try {
     const sitemapXml = await request('/sitemap.xml');
     const urls = [];
@@ -151,29 +153,30 @@ async function runTests() {
       }));
     }
 
+    const expectedTotal = totalProjects + 5;
     results.check4 = {
-      name: 'Sitemap all 95 URLs return 200',
-      status: (sitemap200Count === 95 && sitemapFails.length === 0) ? 'PASS' : 'FAIL',
+      name: `Sitemap all ${expectedTotal} URLs return 200`,
+      status: (sitemap200Count === expectedTotal && sitemapFails.length === 0) ? 'PASS' : 'FAIL',
       detail: `${sitemap200Count}/${urls.length} URLs returned 200 OK${sitemapFails.length ? ` (Fails: ${JSON.stringify(sitemapFails)})` : ''}`
     };
   } catch (e) {
-    results.check4 = { name: 'Sitemap 95 URLs', status: 'FAIL', detail: e.message };
+    results.check4 = { name: 'Sitemap URLs', status: 'FAIL', detail: e.message };
   }
 
-  // --- Check 5: /projects raw HTML (no JS) contains 90 card links ---
+  // --- Check 5: /projects raw HTML (no JS) contains all static card links ---
   try {
     const projectsHtml = await request('/projects');
-    const cardLinkRegex = /href="\/projects\/([^"#\s]+)"/g;
+    const cardLinkRegex = /href="\/?projects\/([^"#.\s]+)(?:\.html)?"/g;
     const foundSlugs = new Set();
     let m;
     while ((m = cardLinkRegex.exec(projectsHtml.body)) !== null) {
       foundSlugs.add(m[1]);
     }
-    const pass = foundSlugs.size === 90;
+    const pass = foundSlugs.size === totalProjects;
     results.check5 = {
-      name: '/projects raw HTML has 90 static card links',
+      name: `/projects raw HTML has ${totalProjects} static card links`,
       status: pass ? 'PASS' : 'FAIL',
-      detail: `Found ${foundSlugs.size}/90 unique project links in raw HTML without JavaScript`
+      detail: `Found ${foundSlugs.size}/${totalProjects} unique project links in raw HTML without JavaScript`
     };
   } catch (e) {
     results.check5 = { name: '/projects raw HTML cards', status: 'FAIL', detail: e.message };

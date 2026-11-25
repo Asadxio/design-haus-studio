@@ -97,7 +97,7 @@
       details_cta_desc: "Consult with Er. Nadeem Keli on your residential, commercial or sacred architecture brief across Bankapur, Savanur, Haveri and North Karnataka.",
       details_prev: "← PREVIOUS STUDY",
       details_next: "NEXT STUDY →",
-      details_all_btn: "ALL 90 PROJECTS",
+      details_all_btn: "ALL 50 PROJECTS",
       details_related_title: "Related Design Studies",
 
       // Contact Page
@@ -244,7 +244,7 @@
       details_cta_desc: "ಬಂಕಾಪುರ, ಸವಣೂರು, ಹಾವೇರಿ ಮತ್ತು ಉತ್ತರ ಕರ್ನಾಟಕದಾದ್ಯಂತ ನಿಮ್ಮ ವಸತಿ ಅಥವಾ ವಾಣಿಜ್ಯ ಕಟ್ಟಡಕ್ಕೆ ಇಂ. ನದೀಮ್ ಕೇಳಿ ಅವರ ಸಲಹೆ ಪಡೆಯಿರಿ.",
       details_prev: "← ಹಿಂದಿನ ಅಧ್ಯಯನ",
       details_next: "ಮುಂದಿನ ಅಧ್ಯಯನ →",
-      details_all_btn: "ಎಲ್ಲಾ 90 ಪ್ರಾಜೆಕ್ಟ್‌ಗಳು",
+      details_all_btn: "ಎಲ್ಲಾ 50 ಪ್ರಾಜೆಕ್ಟ್‌ಗಳು",
       details_related_title: "ಸಂಬಂಧಿತ ವಿನ್ಯಾಸ ಅಧ್ಯಯನಗಳು",
 
       // Contact Page
