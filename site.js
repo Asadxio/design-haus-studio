@@ -38,4 +38,29 @@
       else if (h.startsWith('mailto:')) window.gtag('event', 'click_email', { link_url: h });
     }
   });
+
+  // Footer quick inquiry handler (Rugged Monolith-inspired clean inquiry form -> WhatsApp)
+  window.dhFooterInquiry = function (event, form) {
+    if (event) event.preventDefault();
+    if (!form) return false;
+    const input = form.querySelector('input');
+    const val = (input && input.value ? input.value : '').trim();
+    if (!val) {
+      if (input) {
+        input.focus();
+        input.style.borderColor = '#d8a454';
+      }
+      return false;
+    }
+    const text = encodeURIComponent(`Hello DESIGN HAUS, I would like to inquire about your design services. Contact: ${val}`);
+    window.open(`https://wa.me/919036389529?text=${text}`, '_blank', 'noopener');
+    const btn = form.querySelector('button[type="submit"]');
+    if (btn) {
+      const orig = btn.textContent;
+      btn.textContent = 'Sent ↗';
+      setTimeout(() => { btn.textContent = orig; }, 2200);
+    }
+    if (input) input.value = '';
+    return false;
+  };
 })();

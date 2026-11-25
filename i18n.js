@@ -5,6 +5,8 @@
       topline_independent: "Independent Architecture & Design Studio",
       topline_location: "Bankapur · Savanur · Haveri, Karnataka",
       nav_studio: "Studio",
+      nav_about: "About Us ↗",
+      nav_about_plain: "About Us",
       nav_services: "Services",
       nav_projects: "Projects",
       nav_contact: "Contact",
@@ -21,7 +23,7 @@
       intro_meta: "01 — THE STUDIO",
       intro_title: "Architecture<br>with <i>presence.</i>",
       intro_sub: "Er. Nadeem Keli · Civil Engineer and Architect · 7 Years of Experience",
-      intro_btn: "Discover The Studio ↗",
+      intro_btn: "About Us — Discover The Studio ↗",
       feature_meta: "02 — SELECTED DESIGN",
       feature_title: "Make a<br><i>lasting</i><br>impression.",
       feature_desc: "Explore our curated collection of architectural elevations, luxury villas, and bespoke interiors.",
@@ -137,7 +139,12 @@
       footer_talk: "Let's talk ↗",
       footer_mind: "HAVE A PROJECT IN MIND?",
       footer_rights: "DESIGN HAUS. ALL RIGHTS RESERVED.",
-      footer_led: "LED BY ER. NADEEM KELI · CIVIL ENGINEER & ARCHITECT"
+      footer_led: "LED BY ER. NADEEM KELI · CIVIL ENGINEER & ARCHITECT",
+      footer_rights: "DESIGN HAUS. All rights reserved.",
+      footer_address_val: "DESIGN HAUS Studio, Mundgod Cross,<br>Bankapur, Karnataka 581202",
+      footer_inquire_lbl: "Inquire about our design services",
+      footer_inquire_ph: "Enter your email address here",
+      footer_inquire_btn: "Submit"
     },
 
     kn: {
@@ -145,6 +152,8 @@
       topline_independent: "ಸ್ವತಂತ್ರ ವಾಸ್ತುಶಿಲ್ಪ ಮತ್ತು ವಿನ್ಯಾಸ ಸ್ಟುಡಿಯೋ",
       topline_location: "ಬಂಕಾಪುರ · ಸವಣೂರು · ಹಾವೇರಿ, ಕರ್ನಾಟಕ",
       nav_studio: "ಸ್ಟುಡಿಯೋ",
+      nav_about: "ನಮ್ಮ ಬಗ್ಗೆ ↗",
+      nav_about_plain: "ನಮ್ಮ ಬಗ್ಗೆ",
       nav_services: "ಸೇವೆಗಳು",
       nav_projects: "ಪ್ರಾಜೆಕ್ಟ್‌ಗಳು",
       nav_contact: "ಸಂಪರ್ಕಿಸಿ",
@@ -161,7 +170,7 @@
       intro_meta: "01 — ನಮ್ಮ ಸ್ಟುಡಿಯೋ",
       intro_title: "ಘನತೆಯುಳ್ಳ<br><i>ವಾಸ್ತುಶಿಲ್ಪ.</i>",
       intro_sub: "ಇಂ. ನದೀಮ್ ಕೇಳಿ · ಸಿವಿಲ್ ಇಂಜಿನಿಯರ್ ಮತ್ತು ವಾಸ್ತುಶಿಲ್ಪಿ · 7 ವರ್ಷಗಳ ಅನುಭವ",
-      intro_btn: "ಸ್ಟುಡಿಯೋ ಪರಿಚಯ ತಿಳಿಯಿರಿ ↗",
+      intro_btn: "ನಮ್ಮ ಬಗ್ಗೆ — ಸ್ಟುಡಿಯೋ ನೋಡಿ ↗",
       feature_meta: "02 — ಆಯ್ದ ವಿನ್ಯಾಸ",
       feature_title: "ಶಾಶ್ವತ ಪ್ರಭಾವ<br><i>ಬೀರುವ</i><br>ವಿನ್ಯಾಸ.",
       feature_desc: "DESIGN HAUS ನ ಮೂಲ ವಾಸ್ತುಶಿಲ್ಪ, ಸುಂದರ ಹೊರವಿನ್ಯಾಸ ಮತ್ತು ಒಳಾಂಗಣ ಪರಿಕಲ್ಪನೆಗಳನ್ನು ವೀಕ್ಷಿಸಿ.",
@@ -277,7 +286,12 @@
       footer_talk: "ಚರ್ಚಿಸೋಣ ↗",
       footer_mind: "ಯಾವುದಾದರೂ ಪ್ರಾಜೆಕ್ಟ್ ಯೋಜಿಸುತ್ತಿದ್ದೀರಾ?",
       footer_rights: "DESIGN HAUS. ಎಲ್ಲಾ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.",
-      footer_led: "ಇಂ. ನದೀಮ್ ಕೇಳಿ ಅವರ ನೇತೃತ್ವದಲ್ಲಿ · ಸಿವಿಲ್ ಇಂಜಿನಿಯರ್ ಮತ್ತು ವಾಸ್ತುಶಿಲ್ಪಿ"
+      footer_led: "ಇಂ. ನದೀಮ್ ಕೇಳಿ ಅವರ ನೇತೃತ್ವದಲ್ಲಿ · ಸಿವಿಲ್ ಇಂಜಿನಿಯರ್ ಮತ್ತು ವಾಸ್ತುಶಿಲ್ಪಿ",
+      footer_rights: "DESIGN HAUS. ಎಲ್ಲಾ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.",
+      footer_address_val: "DESIGN HAUS ಸ್ಟುಡಿಯೋ, ಮುಂಡಗೋಡ ಕ್ರಾಸ್,<br>ಬಂಕಾಪುರ, ಕರ್ನಾಟಕ 581202",
+      footer_inquire_lbl: "ನಮ್ಮ ವಿನ್ಯಾಸ ಸೇವೆಗಳ ಬಗ್ಗೆ ವಿಚಾರಿಸಿ",
+      footer_inquire_ph: "ನಿಮ್ಮ ಇಮೇಲ್ ಅಥವಾ ಫೋನ್ ನಂಬರ್ ನಮೂದಿಸಿ",
+      footer_inquire_btn: "ಸಲ್ಲಿಸಿ"
     }
   };
 
