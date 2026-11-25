@@ -1550,13 +1550,33 @@ body:not(.royal-home) .site-header {
 .card-title a:hover {
   color: var(--mono-accent) !important;
 }
-.card-foot {
+.card-foot,
+.card-actions {
   display: flex !important;
-  justify-content: space-between !important;
+  justify-content: flex-start !important;
   align-items: center !important;
   border-top: 1px solid var(--mono-border-subtle) !important;
   padding-top: 14px !important;
+  margin-top: auto !important;
   gap: 10px !important;
+}
+.card-info {
+  padding: 20px 22px 18px !important;
+  background: #ffffff !important;
+  flex-grow: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  gap: 14px !important;
+}
+.card-category {
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  letter-spacing: var(--tracking-wider) !important;
+  text-transform: uppercase !important;
+  color: var(--mono-accent) !important;
+  margin-bottom: 6px !important;
+  display: block !important;
 }
 .card-link {
   font-size: 11px !important;
@@ -1777,12 +1797,14 @@ body:not(.royal-home) .site-header {
    CONTACT FORM & REASSURANCE
    ========================================================================== */
 .contact-form-section {
-  padding: var(--space-12) 5.4% var(--space-16) !important;
+  padding: clamp(56px, 7vw, 88px) 5.4% clamp(56px, 7vw, 84px) !important;
   display: grid !important;
   grid-template-columns: 1fr 1.3fr !important;
   gap: 70px !important;
   background: #ffffff !important;
 }
+.contact-enquiry-heading,
+.contact-form-section h1,
 .contact-form-section h2 {
   font-size: clamp(36px, 4.5vw, 56px) !important;
   font-weight: 800 !important;
@@ -1791,11 +1813,36 @@ body:not(.royal-home) .site-header {
   line-height: var(--leading-tight) !important;
   margin: 0 0 16px 0 !important;
 }
+.contact-enquiry-heading em,
+.contact-form-section h1 em,
 .contact-form-section h2 em {
   font-family: var(--mono-serif) !important;
   font-style: italic !important;
   color: var(--mono-accent) !important;
   font-weight: 400 !important;
+}
+.map-section.map-only {
+  padding: 0 5.4% 88px !important;
+  background: #ffffff !important;
+  min-height: auto !important;
+}
+.map-section.map-only iframe {
+  width: 100% !important;
+  height: 440px !important;
+  border: 1px solid var(--mono-border) !important;
+  border-radius: 20px !important;
+  display: block !important;
+  filter: none !important;
+  box-shadow: var(--shadow-md) !important;
+}
+@media (max-width: 768px) {
+  .map-section.map-only {
+    padding: 0 5% 60px !important;
+  }
+  .map-section.map-only iframe {
+    height: 340px !important;
+    border-radius: 16px !important;
+  }
 }
 .enquiry-form {
   display: flex !important;
