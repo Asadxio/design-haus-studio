@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Kannada:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="monolith.css">
+  <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="monolith.css?v=20261126-2">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -87,29 +87,27 @@
   </header>
 
   <main>
-    <section class="page-hero page-hero-studio">
-      <div class="page-hero-bg" style="background-image:url('assets/projects/exterior-21.webp')"></div>
-      <div class="page-hero-shade"></div>
-      <div class="page-hero-content">
-        <p class="kicker light" data-i18n="studio_kicker">THE PEOPLE &amp; THINKING BEHIND THE WORK</p>
-        <h1 data-i18n="studio_hero_title">Design with<br><em>intention.</em></h1>
-        <p data-i18n="studio_hero_desc">A rigorous, thoughtful approach to residential and commercial architecture, interior spatial planning and the built environment.</p>
-      </div>
-      <div class="page-hero-foot">
-        <span>01 / THE STUDIO</span>
-        <span data-i18n="hero_credentials">ER. NADEEM KELI · 7 YEARS OF EXPERIENCE</span>
+    <!-- Single Lead Architectural Portrait First -->
+    <section class="studio-lead-showcase section-shell" aria-label="Er. Nadeem Keli Architectural Portrait">
+      <div class="founder-portrait-frame studio-only-image">
+        <img src="assets/studio/er-nadeem-keli-founder.jpg" alt="Er. Nadeem Keli, Civil Engineer &amp; Principal Architect at DESIGN HAUS Bankapur" loading="eager" width="768" height="1024" fetchpriority="high">
+        <div class="founder-badge">
+          <strong>Er. Nadeem Keli</strong>
+          <span>Founder &amp; Principal Architect · DESIGN HAUS</span>
+        </div>
       </div>
     </section>
 
-    <section class="studio-story section-shell">
+    <!-- About Us Section Below the Portrait -->
+    <section class="studio-story section-shell" id="about-us">
       <div class="section-meta">
-        <span>01 / OUR STORY</span>
+        <span>01 / ABOUT US</span>
         <span>DESIGN HAUS · BANKAPUR, KARNATAKA</span>
       </div>
       <div class="story-grid">
         <div>
-          <p class="kicker" data-i18n="story_kicker">A STUDIO BUILT AROUND YOUR VISION</p>
-          <h2 data-i18n="story_title">Thoughtful design.<br><em>Grounded expertise.</em></h2>
+          <p class="kicker" data-i18n="studio_kicker">THE PEOPLE &amp; THINKING BEHIND THE WORK</p>
+          <h1 class="studio-about-heading" data-i18n="story_title">Thoughtful design.<br><em>Grounded expertise.</em></h1>
         </div>
         <div>
           <p>Led by <strong>Er. Nadeem Keli</strong>, DESIGN HAUS brings seven years of dedicated experience across architecture, civil engineering, building planning, interior spatial design and turnkey construction coordination. The studio pairs architectural imagination with structural integrity — ensuring that what looks extraordinary in 3D elevations is structurally sound, cost-effective and enduring in real life.</p>
@@ -123,11 +121,24 @@
           </div>
         </div>
       </div>
-      <div class="story-image founder-portrait-frame">
-        <img src="assets/studio/er-nadeem-keli-founder.jpg" alt="Er. Nadeem Keli, Civil Engineer &amp; Principal Architect at DESIGN HAUS Bankapur" loading="eager" width="768" height="1024">
-        <div class="founder-badge">
-          <strong>Er. Nadeem Keli</strong>
-          <span>Founder &amp; Principal Architect · DESIGN HAUS</span>
+
+      <!-- Studio Credentials Placed Directly After About Us -->
+      <div class="mono-hero-stats studio-credentials" aria-label="Studio Credentials">
+        <div class="mono-stat-item">
+          <span class="mono-stat-val">7 Years</span>
+          <span class="mono-stat-lbl">Active Practice</span>
+        </div>
+        <div class="mono-stat-item">
+          <span class="mono-stat-val">Civil Eng.</span>
+          <span class="mono-stat-lbl">Er. Nadeem Keli</span>
+        </div>
+        <div class="mono-stat-item">
+          <span class="mono-stat-val">90+ Works</span>
+          <span class="mono-stat-lbl">Curated Projects</span>
+        </div>
+        <div class="mono-stat-item">
+          <span class="mono-stat-val">Karnataka</span>
+          <span class="mono-stat-lbl">Bankapur / Haveri</span>
         </div>
       </div>
     </section>
@@ -198,54 +209,6 @@
       </div>
     </section>
 
-    <!-- Physical Workspace Gallery -->
-    <section class="mono-section section-shell" style="padding-top:70px;padding-bottom:80px;background:#ffffff;">
-      <div class="mono-sec-header">
-        <div class="mono-sec-title-wrap">
-          <span class="mono-sec-eyebrow">THE PHYSICAL WORKSPACE · BANKAPUR</span>
-          <h2 class="mono-sec-title">Our Consultation <i>Studio &amp; Cabin</i></h2>
-          <p class="mono-sec-note">
-            Step inside our studio at Mundgod Cross, Bankapur — crafted with the same attention to architectural light, materials, and bespoke interior detailing that defines every project we build.
-          </p>
-        </div>
-      </div>
-      <div class="mono-lab-grid">
-        <article class="mono-lab-card">
-          <div class="mono-lab-img-wrap">
-            <img src="assets/studio/design-haus-office-desk.jpg" alt="Er. Nadeem Keli Workstation at DESIGN HAUS Bankapur" loading="lazy" width="800" height="1067">
-            <span class="mono-lab-code">LAB_01</span>
-            <span class="mono-lab-tag">WORKSTATION</span>
-          </div>
-          <div class="mono-lab-body">
-            <h3>Er. Nadeem Keli</h3>
-            <p>Architectural Planning, Structural Design &amp; Cost Estimation Desk.</p>
-          </div>
-        </article>
-        <article class="mono-lab-card">
-          <div class="mono-lab-img-wrap">
-            <img src="assets/studio/design-haus-office-main.jpg" alt="Executive Consultation Cabin at Mundgod Cross Bankapur" loading="lazy" width="800" height="1067">
-            <span class="mono-lab-code">LAB_02</span>
-            <span class="mono-lab-tag">CONSULTATION CABIN</span>
-          </div>
-          <div class="mono-lab-body">
-            <h3>Executive Cabin</h3>
-            <p>Mundgod Cross, Bankapur · Client Consultation &amp; Material Selection.</p>
-          </div>
-        </article>
-        <article class="mono-lab-card">
-          <div class="mono-lab-img-wrap">
-            <img src="assets/studio/design-haus-office-interior.jpg" alt="Architectural Display and Ambient Lighting at DESIGN HAUS Studio" loading="lazy" width="800" height="1067">
-            <span class="mono-lab-code">LAB_03</span>
-            <span class="mono-lab-tag">INTERIOR CRAFT</span>
-          </div>
-          <div class="mono-lab-body">
-            <h3>Architectural Display</h3>
-            <p>Backlit Teak Millwork, Ambient Coves &amp; Modern Spatial Detailing.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
     <section class="contact-strip section-shell">
       <div>
         <p class="kicker" data-i18n="contact_kicker">LET'S BEGIN WITH A CONVERSATION</p>
@@ -259,12 +222,8 @@
   <footer class="site-footer">
     <div class="footer-main">
       <div>
-        <a class="wordmark footer-mark" href="index.html">
-          <img src="assets/brand/design-haus-logo.png" alt="DESIGN HAUS logo">
-          <span>
-            <strong>DESIGN HAUS</strong>
-            <small data-i18n="brand_tagline">DESIGNING SPACE, DEFINING STYLE</small>
-          </span>
+        <a class="wordmark footer-mark" href="index.html" aria-label="DESIGN HAUS Home">
+          <img src="assets/brand/design-haus-logo-white.png" alt="DESIGN HAUS">
         </a>
         <p>Architecture · Construction · Interiors · Real Estate.<br>Led by Er. Nadeem Keli (7 Years Experience).<br>Mundgod Cross, Bankapur, Karnataka, India.</p>
       </div>
@@ -293,11 +252,6 @@
       </div>
     </div>
     <div class="footer-middle">
-      <div class="footer-loc-meta">
-        <span>Bankapur · Savanur · Haveri, Karnataka</span>
-        <span class="pipe">·</span>
-        <span>Independent Architecture &amp; Civil Engineering Practice</span>
-      </div>
       <div class="lang-switch-wrap" role="group" aria-label="Language selector">
         <span class="lang-label">Language:</span>
         <button class="lang-btn active" data-lang="en">EN</button>
