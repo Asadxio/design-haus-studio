@@ -39,12 +39,12 @@
     try {
       let res;
       try {
-        res = await fetch('/assets/projects.json');
-      } catch (e) {
         res = await fetch('assets/projects.json');
+      } catch (e) {
+        res = await fetch('/assets/projects.json');
       }
       if (!res || !res.ok) {
-        res = await fetch('assets/projects.json');
+        res = await fetch('/assets/projects.json');
       }
       if (!res.ok) throw new Error('Could not load portfolio collection');
       const allProjects = await res.json();
