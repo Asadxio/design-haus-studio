@@ -1182,10 +1182,10 @@ body:not(.royal-home) .site-header {
   color: var(--mono-ink);
 }
 
-/* Services 3-Col Grid on Home */
+/* Services 2x2 Grid on Home */
 .mono-services-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-4);
 }
 .mono-service-card {
@@ -1640,8 +1640,9 @@ body:not(.royal-home) .site-header {
   border-color: var(--mono-ink) !important;
 }
 .service-detail-image {
-  height: 100% !important;
-  min-height: 340px !important;
+  height: 400px !important;
+  min-height: 400px !important;
+  max-height: 400px !important;
   background: var(--mono-surface-alt) !important;
   overflow: hidden !important;
   border-radius: 19px 0 0 19px !important;
@@ -1662,6 +1663,18 @@ body:not(.royal-home) .site-header {
   display: flex !important;
   flex-direction: column !important;
   gap: 12px !important;
+}
+@media (min-width: 1025px) {
+  .service-detail-copy {
+    padding: 40px 44px 40px 12px !important;
+  }
+  .service-detail:nth-child(even) .service-detail-image,
+  .service-detail:nth-child(even) .service-detail-image img {
+    border-radius: 0 19px 19px 0 !important;
+  }
+  .service-detail:nth-child(even) .service-detail-copy {
+    padding: 40px 12px 40px 44px !important;
+  }
 }
 .service-detail-copy > span {
   font-size: 10.5px !important;
@@ -2507,6 +2520,13 @@ body:not(.royal-home) footer.site-footer.rm-footer {
   .mono-lab-grid {
     grid-template-columns: repeat(2, 1fr) !important;
   }
+  .service-detail-image,
+  .service-detail-image img {
+    border-radius: 19px 19px 0 0 !important;
+    height: 360px !important;
+    min-height: 360px !important;
+    max-height: 360px !important;
+  }
   .service-detail-copy {
     padding: 0 30px 30px 30px !important;
   }
@@ -2659,7 +2679,9 @@ body:not(.royal-home) footer.site-footer.rm-footer {
   .service-detail-image,
   .service-detail-image img {
     border-radius: 19px 19px 0 0 !important;
-    min-height: 240px !important;
+    height: 280px !important;
+    min-height: 280px !important;
+    max-height: 280px !important;
   }
   .page-hero-3d {
     width: 68% !important;

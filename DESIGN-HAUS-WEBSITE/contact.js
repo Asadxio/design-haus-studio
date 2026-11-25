@@ -3,17 +3,17 @@
   if (!form) return;
 
   const SERVICE_MAP = {
-    'architecture': 'Architecture & Building Planning',
-    'visualisation': '2D Floor Plan / 3D Elevation',
-    'visualization': '2D Floor Plan / 3D Elevation',
-    'interiors': 'Interior Design / Renovation',
-    'interior': 'Interior Design / Renovation',
-    'build': 'Construction / Turnkey Project',
-    'construction': 'Construction / Turnkey Project',
-    'consultancy': 'Estimation / Building Permission / Supervision',
-    'estimation': 'Estimation / Building Permission / Supervision',
-    'realestate': 'Commercial / Real Estate',
-    'commercial': 'Commercial / Real Estate'
+    'architecture': 'Architecture',
+    'visualisation': 'Architecture',
+    'visualization': 'Architecture',
+    'construction': 'Construction',
+    'build': 'Construction',
+    'consultancy': 'Construction',
+    'estimation': 'Construction',
+    'interiors': 'Interiors',
+    'interior': 'Interiors',
+    'realestate': 'Real Estate',
+    'commercial': 'Real Estate'
   };
 
   const params = new URLSearchParams(window.location.search);
