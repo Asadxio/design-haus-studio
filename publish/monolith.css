@@ -1222,10 +1222,68 @@ body:not(.royal-home) .site-header {
   margin: 0;
 }
 
-/* Studio Physical Photos (4 Workspace images) */
+/* Minimal 3-Photo Design Lab Bento Collage (Home Page per Client Direction) */
+.mono-lab-showcase-inner {
+  max-width: 820px;
+  margin: 0 auto;
+}
+.mono-lab-heading {
+  font-family: var(--mono-font) !important;
+  font-size: clamp(28px, 4.5vw, 44px) !important;
+  font-weight: 700 !important;
+  letter-spacing: var(--tracking-tight) !important;
+  color: var(--mono-ink) !important;
+  text-align: center !important;
+  margin: 0 0 28px 0 !important;
+  line-height: 1.15 !important;
+}
+.mono-lab-bento {
+  display: grid;
+  grid-template-columns: 0.94fr 1.06fr;
+  grid-template-rows: 240px 240px;
+  gap: 14px;
+}
+.mono-lab-bento-item {
+  margin: 0;
+  padding: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--mono-surface-alt);
+  border: 1px solid rgba(15, 16, 13, 0.06);
+  box-shadow: 0 6px 24px rgba(15, 16, 13, 0.05);
+}
+.mono-lab-bento-item.bento-tall {
+  grid-row: span 2;
+}
+.mono-lab-bento-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  transition: transform 0.7s var(--ease-out);
+}
+.mono-lab-bento-item.bento-desk img {
+  object-position: center 75%;
+}
+.mono-lab-bento-item:hover img {
+  transform: scale(1.03);
+}
+.mono-lab-copy {
+  margin-top: 26px;
+}
+.mono-lab-copy p {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--mono-ink-muted);
+  margin: 0 0 18px 0;
+  max-width: 100%;
+}
+
+/* Studio Physical Photos (3 Workspace cards for Studio About page) */
 .mono-lab-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-4);
   margin-top: var(--space-6);
 }
@@ -2306,8 +2364,27 @@ body:not(.royal-home) footer {
     gap: 24px !important;
   }
   .mono-lab-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 12px !important;
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  .mono-lab-bento {
+    grid-template-columns: 0.94fr 1.06fr !important;
+    grid-template-rows: 152px 152px !important;
+    gap: 10px !important;
+  }
+  .mono-lab-bento-item {
+    border-radius: 16px !important;
+  }
+  .mono-lab-heading {
+    font-size: 28px !important;
+    margin-bottom: 22px !important;
+  }
+  .mono-lab-copy {
+    margin-top: 20px !important;
+  }
+  .mono-lab-copy p {
+    font-size: 14.5px !important;
+    line-height: 1.6 !important;
   }
   .mono-lab-card,
   .mono-lab-item {
@@ -2316,7 +2393,7 @@ body:not(.royal-home) footer {
   }
   .mono-lab-img-wrap,
   .mono-lab-item .lab-thumb {
-    height: 175px !important;
+    height: 260px !important;
     border-radius: 11px 11px 0 0 !important;
   }
   .mono-lab-img-wrap img,
