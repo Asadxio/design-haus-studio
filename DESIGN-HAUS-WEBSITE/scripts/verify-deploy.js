@@ -192,7 +192,7 @@ async function runTests() {
       { path: '/contact', expectedCanonical: 'https://designhauss.com/contact' },
       { path: '/projects/dh-sacred-hsaq', expectedCanonical: 'https://designhauss.com/projects/dh-sacred-hsaq' },
       { path: '/projects/dh-ext-01', expectedCanonical: 'https://designhauss.com/projects/dh-ext-01' },
-      { path: '/projects/dh-int-05', expectedCanonical: 'https://designhauss.com/projects/dh-int-05' }
+      { path: '/projects/dh-int-ip05', expectedCanonical: 'https://designhauss.com/projects/dh-int-ip05' }
     ];
 
     let allCanonicalPass = true;
